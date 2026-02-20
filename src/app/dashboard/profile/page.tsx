@@ -35,15 +35,18 @@ export default function ProfilePage() {
                 <div className="space-y-8">
                     <Card className="p-6 border-2 border-black shadow-neo bg-white">
                         <h3 className="font-black uppercase mb-4 border-b-2 border-black pb-2">Contact</h3>
-                        <div className="space-y-3 font-medium">
-                            <div className="flex items-center gap-2">
-                                <Mail size={16} /> john.doe@example.com
+                        <div className="space-y-4 font-medium text-sm md:text-base overflow-hidden">
+                            <div className="flex items-start gap-3">
+                                <Mail size={18} className="shrink-0 mt-0.5" />
+                                <span className="break-all">john.doe@example.com</span>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <Phone size={16} /> +1 (555) 123-4567
+                            <div className="flex items-start gap-3">
+                                <Phone size={18} className="shrink-0 mt-0.5" />
+                                <span>+1 (555) 123-4567</span>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <MapPin size={16} /> San Francisco, CA
+                            <div className="flex items-start gap-3">
+                                <MapPin size={18} className="shrink-0 mt-0.5" />
+                                <span>San Francisco, CA</span>
                             </div>
                         </div>
                     </Card>

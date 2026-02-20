@@ -3,6 +3,7 @@ import { Hero } from "@/components/landing/Hero"
 import { Problem } from "@/components/landing/Problem"
 import { Solution } from "@/components/landing/Solution"
 import { CoreEngine } from "@/components/landing/CoreEngine"
+import { Features } from "@/components/landing/Features"
 import { ToolsGrid } from "@/components/landing/ToolsGrid"
 import { Testimonials } from "@/components/landing/Testimonials"
 import { Pricing } from "@/components/landing/Pricing"
@@ -18,6 +19,7 @@ export default function Home() {
       <Problem />
       <Solution />
       <CoreEngine />
+      <Features />
       <ToolsGrid />
       <Testimonials />
       <Pricing />
