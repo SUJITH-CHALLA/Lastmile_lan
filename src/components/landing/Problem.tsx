@@ -9,17 +9,17 @@ export function Problem() {
         {
             icon: <Clock className="w-8 h-8 text-primary" />,
             title: "Waste of Time",
-            description: "Spending 20 hours a week customizing resumes manually is insane."
+            description: "Spending hours tailoring the same resume for every job description — manually — while applying to 5 jobs a week when you need to apply to 50."
         },
         {
             icon: <XCircle className="w-8 h-8 text-primary" />,
             title: "Zero Feedback",
-            description: "Applying to 100 jobs and getting ghosted by 99 of them."
+            description: "Applying to jobs on Naukri, LinkedIn, and Internshala and getting ghosted — no score, no feedback, no idea if your resume even passed the ATS filter."
         },
         {
             icon: <Frown className="w-8 h-8 text-primary" />,
             title: "Constant Rejection",
-            description: "Getting the same 'Unfortunately, we decided to move forward...' email."
+            description: "Getting rejected before a human even reads your resume because an ATS system filtered you out for a missing keyword."
         }
     ]
 
@@ -31,7 +31,7 @@ export function Problem() {
                         The Job Search <br /> <span className="bg-primary px-2 text-black">Is Broken.</span>
                     </h2>
                     <p className="text-base text-gray-600 max-w-2xl mx-auto font-medium">
-                        The modern hiring process is designed to filter you out, not find you.
+                        Every job portal is a black box. You apply, hear nothing, and never know why.
                     </p>
                 </div>
 

@@ -7,46 +7,46 @@ import { motion } from "framer-motion"
 export function Testimonials() {
     const reviews = [
         {
-            name: "Alex M.",
-            role: "Software Engineer",
-            text: "I applied to 50 jobs with this. Got 12 interviews. The resume rewrite is insane.",
+            name: "Arjun S.",
+            role: "IT Professional",
+            text: "“Applied to 30 companies on Naukri and LinkedIn in one week. Got 6 interview calls. Used to take me a month to apply to this many properly.”",
             stars: 5,
-            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex"
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Arjun"
         },
         {
-            name: "Sarah K.",
-            role: "Product Manager",
-            text: "Finally a tool that doesn't just spit out generic AI trash. It actually sounds like me.",
+            name: "Priya M.",
+            role: "Fresher",
+            text: "“The ATS score checker showed me my resume was only 34% matched. After the tailoring it hit 89%. Got shortlisted at TCS and Infosys the same week.”",
             stars: 5,
-            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah"
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Priya"
         },
         {
-            name: "David R.",
-            role: "New Grad",
-            text: "Landed my first job in 2 weeks. The auto-apply extension saved me hours.",
+            name: "Rahul K.",
+            role: "Campus Placements",
+            text: "“Finally stopped copy-pasting my experience into every job form. One click and it’s done. Game changer for campus placements.”",
             stars: 5,
-            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=David"
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Rahul"
         },
         {
-            name: "Michael T.",
-            role: "Data Scientist",
-            text: "The scanner found keywords I missed. Hired at a top tech co in 3 weeks.",
+            name: "Sneha R.",
+            role: "MBA Graduate",
+            text: "“Got my first job offer 3 weeks after signing up. The cover letter generator actually sounds like me, not like ChatGPT.”",
             stars: 5,
-            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Michael"
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sneha"
         },
         {
-            name: "Emily R.",
-            role: "UX Designer",
-            text: "Love the design. The portfolio builder is a game changer for creatives.",
+            name: "Karan P.",
+            role: "Product @ Indian Startup",
+            text: "“The auto-apply extension is mental. I just click once and it fills the entire application perfectly.”",
             stars: 5,
-            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Emily"
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Karan"
         },
         {
-            name: "James L.",
-            role: "Marketing Lead",
-            text: "Applying used to be a chore. Now it's almost fun? Worth every penny.",
+            name: "Divya T.",
+            role: "Senior Developer",
+            text: "“The job tracker alone is worth it. No more messy Excel sheets. I know exactly where I am in every interview pipeline.”",
             stars: 5,
-            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=James"
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Divya"
         }
     ]
 
@@ -60,12 +60,12 @@ export function Testimonials() {
                 {/* Marquee Container */}
                 <div className="relative w-full overflow-hidden mask-linear-fade">
                     <motion.div
-                        className="flex gap-8 w-max"
+                        className="flex gap-8 w-max pr-8"
                         animate={{ x: ["0%", "-50%"] }}
                         transition={{
                             repeat: Infinity,
                             ease: "linear",
-                            duration: 30
+                            duration: 40
                         }}
                     >
                         {[...reviews, ...reviews].map((review, i) => (
@@ -75,7 +75,7 @@ export function Testimonials() {
                                         <Star key={j} className="fill-black text-black w-5 h-5" />
                                     ))}
                                 </div>
-                                <p className="text-lg font-bold mb-6 line-clamp-3">"{review.text}"</p>
+                                <p className="text-lg font-bold mb-6 line-clamp-3">{review.text}</p>
                                 <div className="flex items-center gap-4">
                                     <img
                                         src={review.image}

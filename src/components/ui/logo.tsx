@@ -5,8 +5,8 @@ export function Logo({ className = "w-8 h-8", ...props }: React.ComponentProps<"
     return (
         <div className={`relative ${className}`} {...props}>
             <Image
-                src="/logo_f.png"
-                alt="LastMile Logo"
+                src="/lastmile-logo.png"
+                alt="LastMile — AI Job Application Copilot"
                 fill
                 className="object-contain mix-blend-multiply"
                 unoptimized // User requested "dont compress or dont change anything"

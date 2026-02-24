@@ -35,10 +35,15 @@ export function Navbar() {
         >
             <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="text-2xl font-black tracking-tighter uppercase flex items-center gap-2">
-                    <Logo className="w-10 h-10" />
-                    LastMile.
-                </Link>
+                <div className="flex items-center gap-3">
+                    <Link href="/" className="text-2xl font-black tracking-tighter uppercase flex items-center gap-2">
+                        <Logo className="w-10 h-10" />
+                        LastMile.
+                    </Link>
+                    <span className="hidden lg:inline-flex bg-yellow-200 border-2 border-black text-xs font-bold px-2 py-0.5 shadow-neo-sm transform transition-transform hover:-translate-y-0.5">
+                        India's #1 AI Job Copilot
+                    </span>
+                </div>
 
                 {/* Desktop Nav */}
                 <div className="hidden md:flex items-center gap-8">
@@ -58,18 +63,25 @@ export function Navbar() {
                     </Link>
                     <JoinWaitlistDialog>
                         <Button variant="default" className="shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px]">
-                            Join Waitlist
+                            Join Free Waitlist
                         </Button>
                     </JoinWaitlistDialog>
                 </div>
 
-                {/* Mobile Toggle */}
-                <button
-                    className="md:hidden p-2 border-2 border-black shadow-neo active:translate-x-[2px] active:translate-y-[2px] active:shadow-none bg-white"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                >
-                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
+                {/* Mobile Toggle & CTA */}
+                <div className="flex md:hidden items-center gap-3">
+                    <JoinWaitlistDialog>
+                        <Button variant="default" className="shadow-neo active:translate-x-[2px] active:translate-y-[2px] active:shadow-none text-xs px-3 h-10">
+                            Join Free
+                        </Button>
+                    </JoinWaitlistDialog>
+                    <button
+                        className="p-2 border-2 border-black shadow-neo active:translate-x-[2px] active:translate-y-[2px] active:shadow-none bg-white"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    >
+                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
+                </div>
             </div>
 
             {/* Mobile Menu */}
@@ -92,9 +104,11 @@ export function Navbar() {
                                     {link.name}
                                 </Link>
                             ))}
-                            <JoinWaitlistDialog>
-                                <Button className="w-full">Join Waitlist</Button>
-                            </JoinWaitlistDialog>
+                            <Link href="/dashboard" onClick={() => setIsMobileMenuOpen(false)}>
+                                <Button variant="outline" className="w-full border-2 border-black shadow-neo font-bold mb-4">
+                                    Dashboard
+                                </Button>
+                            </Link>
                         </div>
                     </motion.div>
                 )}

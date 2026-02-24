@@ -6,7 +6,16 @@ import { Users, UserPlus } from "lucide-react"
 import Image from "next/image"
 
 export function About() {
-    // ... (founders array remains same)
+    const team = [
+        { name: "SUJITH.C", role: "FOUNDER & CHIEF AI ARCHITECT", desc: '"Building the brain that makes getting hired inevitable."', img: "/founder.png" },
+        { name: "GUNA SHEKHAR.G", role: "CO-FOUNDER & LEAD DEVELOPER", desc: '"Engineering the engine that powers your career growth."', img: "/co-founder.png" },
+        { name: "SASI BHARGAV", role: "CORE DEVELOPER", desc: '"Scaling the systems that never sleep."', img: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sasi" },
+        { name: "MOHAN SAI", role: "PRODUCT ENGINEER", desc: '"Building intuitive user experiences."', img: "https://api.dicebear.com/7.x/avataaars/svg?seed=Mohan" },
+        { name: "DEEPTHI", role: "UX/UI DESIGNER", desc: '"Designing the future of job hunting."', img: "https://api.dicebear.com/7.x/avataaars/svg?seed=Deepthi" },
+        { name: "VARSHINI", role: "DATA ENGINEER", desc: '"Transforming data into an unfair advantage."', img: "https://api.dicebear.com/7.x/avataaars/svg?seed=Varshini" },
+        { name: "TEJESRI", role: "QA ENGINEER", desc: '"Ensuring flawless execution in every application."', img: "https://api.dicebear.com/7.x/avataaars/svg?seed=Tejesri" },
+        { name: "VENKATESH", role: "AUTOMATION ENGINEER", desc: '"Automating the manual work away."', img: "https://api.dicebear.com/7.x/avataaars/svg?seed=Venkatesh" },
+    ]
 
     return (
         <section id="about" className="py-20 bg-yellow-50 border-b-2 border-black">
@@ -20,61 +29,25 @@ export function About() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-                    {/* Founder 1 */}
-                    <Card className="p-8 border-2 border-black shadow-neo bg-white flex flex-col items-center text-center">
-                        <div className="w-40 h-40 rounded-full border-2 border-black overflow-hidden mb-6 bg-gray-200">
-                            <img
-                                src="/Founder_f.png"
-                                alt="Founder"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                        <h3 className="text-2xl font-black uppercase mb-1">SUJITH.C</h3>
-                        <p className="text-sm font-bold text-primary bg-black px-2 py-1 mb-2">FOUNDER & CHIEF AI ARCHITECT</p>
-                        <p className="text-gray-600 font-medium leading-tight">
-                            "Building the brain that makes getting hired inevitable."
-                        </p>
-                    </Card>
-
-                    {/* Founder 2 */}
-                    <Card className="p-8 border-2 border-black shadow-neo bg-white flex flex-col items-center text-center">
-                        <div className="w-40 h-40 rounded-full border-2 border-black overflow-hidden mb-6 bg-gray-200">
-                            <img
-                                src="/Co-founder-f.png"
-                                alt="Co-Founder"
-                                className="w-full h-full object-cover object-[center_25%]"
-                            />
-                        </div>
-                        <h3 className="text-2xl font-black uppercase mb-1">GUNA SHEKHAR.G</h3>
-                        <p className="text-sm font-bold text-primary bg-black px-2 py-1 mb-2">CO-FOUNDER & LEAD DEVELOPER</p>
-                        <p className="text-gray-600 font-medium leading-tight">
-                            "Engineering the engine that powers your career growth."
-                        </p>
-                    </Card>
-                </div>
-
-                {/* Team / Hiring Section */}
-                <div className="max-w-4xl mx-auto">
-                    <Card className="p-12 border-2 border-black shadow-neo bg-black text-white text-center relative overflow-hidden">
-                        <div className="relative z-10 flex flex-col items-center">
-                            <div className="bg-white text-black p-4 rounded-full border-2 border-white mb-6">
-                                <UserPlus size={40} />
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+                    {team.map((member, i) => (
+                        <Card key={i} className="p-6 md:p-8 border-2 border-black shadow-neo bg-white flex flex-col items-center text-center hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg transition-all">
+                            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-black overflow-hidden mb-6 bg-gray-200 shrink-0">
+                                <img
+                                    src={member.img}
+                                    alt={member.name}
+                                    width={160}
+                                    height={160}
+                                    className="w-full h-full object-cover object-[center_25%]"
+                                />
                             </div>
-                            <h3 className="text-3xl font-black uppercase mb-4">The Team is Growing</h3>
-                            <p className="text-lg font-medium text-gray-300 max-w-lg mx-auto mb-8">
-                                We haven't hired the rest of the squad yet. But big things are coming.
+                            <h3 className="text-xl md:text-2xl font-black uppercase mb-1">{member.name}</h3>
+                            <p className="text-[10px] md:text-xs font-bold text-primary bg-black px-2 py-1 mb-3">{member.role}</p>
+                            <p className="text-gray-600 font-medium leading-tight text-sm">
+                                {member.desc}
                             </p>
-                            <JoinWaitlistDialog>
-                                <div className="inline-block border-2 border-white px-8 py-3 font-bold uppercase bg-white text-black hover:bg-transparent hover:text-white transition-colors cursor-pointer">
-                                    Join The Waitlist
-                                </div>
-                            </JoinWaitlistDialog>
-                        </div>
-
-                        {/* Decoration */}
-                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-white to-primary opacity-50"></div>
-                    </Card>
+                        </Card>
+                    ))}
                 </div>
             </div>
         </section>

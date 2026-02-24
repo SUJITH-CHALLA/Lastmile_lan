@@ -1,11 +1,15 @@
-"use client"
+import { Metadata } from 'next'
 
+export const metadata: Metadata = {
+    title: "Feed — AI-E Console | LastMile",
+    description: "Manage your AI-powered job applications.",
+}
 import { Sidebar } from "@/components/dashboard/Sidebar"
 import { AICopilot } from "@/components/dashboard/AICopilot"
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, Zap } from "lucide-react"
 
 export default function DashboardLayout({
     children,
@@ -21,7 +25,7 @@ export default function DashboardLayout({
                         <ArrowLeft size={20} /> Back to Home
                     </Button>
                 </Link>
-                <div className="font-black uppercase">AI-E Console_.</div>
+                <div className="font-black uppercase">AI-E Console</div>
             </div>
 
             {/* Left Sidebar (Navigation) - Fixed width */}
@@ -34,6 +38,14 @@ export default function DashboardLayout({
 
             {/* Right Sidebar (AI Copilot) - Fixed width */}
             <AICopilot />
+
+            {/* Global Floating Action Button */}
+            <div className="fixed bottom-6 right-6 lg:right-[340px] z-50">
+                <Button className="h-14 px-6 md:px-8 text-base md:text-lg font-black uppercase bg-green-400 hover:bg-green-500 text-black border-2 border-black shadow-neo hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all rounded-full flex items-center gap-2">
+                    <Zap className="fill-black" size={24} />
+                    <span className="hidden sm:inline">One-Click Apply</span>
+                </Button>
+            </div>
         </div>
     )
 }

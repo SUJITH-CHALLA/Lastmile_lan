@@ -1,9 +1,12 @@
 import { Navbar } from "@/components/layout/Navbar"
 import { Hero } from "@/components/landing/Hero"
+import { StatsBanner } from "@/components/landing/StatsBanner"
 import { Problem } from "@/components/landing/Problem"
 import { Solution } from "@/components/landing/Solution"
+import { HowItWorks } from "@/components/landing/HowItWorks"
 import { CoreEngine } from "@/components/landing/CoreEngine"
 import { Features } from "@/components/landing/Features"
+import { PortalStrip } from "@/components/landing/PortalStrip"
 import { ToolsGrid } from "@/components/landing/ToolsGrid"
 import { Testimonials } from "@/components/landing/Testimonials"
 import { Pricing } from "@/components/landing/Pricing"
@@ -16,10 +19,13 @@ export default function Home() {
     <main className="min-h-screen bg-background font-sans selection:bg-primary selection:text-black">
       <Navbar />
       <Hero />
+      <StatsBanner />
       <Problem />
       <Solution />
+      <HowItWorks />
       <CoreEngine />
       <Features />
+      <PortalStrip />
       <ToolsGrid />
       <Testimonials />
       <Pricing />

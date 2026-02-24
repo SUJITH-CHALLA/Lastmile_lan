@@ -9,13 +9,13 @@ export function Features() {
         {
             icon: <FileText className="w-8 h-8 text-black" />,
             title: "AI Resume Tailoring",
-            description: "We analyze job descriptions and optimize your resume to beat the ATS every single time.",
+            description: "We analyze job descriptions and optimize your resume to beat the ATS every single time. ATS score shown before and after so you see exactly what improved.",
             bgColor: "bg-yellow-200"
         },
         {
             icon: <Send className="w-8 h-8 text-black" />,
             title: "Auto-Apply Copilot",
-            description: "Stop filling out the same forms. Our extension applies to jobs for you while you sleep.",
+            description: "Stop filling out the same form fields 40 times. Click apply once — AI-E reads the form, fills every field from your profile, and waits for your one-click confirmation to submit.",
             bgColor: "bg-green-200"
         },
         {
@@ -39,7 +39,7 @@ export function Features() {
         {
             icon: <Briefcase className="w-8 h-8 text-black" />,
             title: "Mock Interviews",
-            description: "Practice with our AI interviewer and get real-time feedback on your responses.",
+            description: "Practice with our AI interviewer and get real-time feedback on your responses. Trained on real interview patterns from Indian companies and global tech firms.",
             bgColor: "bg-orange-200"
         }
     ]
@@ -52,7 +52,7 @@ export function Features() {
                         YOUR <span className="bg-primary px-2 text-black">UNFAIR ADVANTAGE.</span>
                     </h2>
                     <p className="text-base text-gray-600 max-w-2xl mx-auto font-medium">
-                        Everything a student needs to stop getting ghosted and start getting hired.
+                        Everything a job seeker needs to stop getting ghosted and start getting hired.
                     </p>
                 </div>
 

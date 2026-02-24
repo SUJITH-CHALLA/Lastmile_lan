@@ -14,16 +14,24 @@ export function FAQ() {
             answer: "LastMile is the unfair advantage you've been looking for. It uses AI to tailor your resume, write your cover letters, and track your applications automatically. We help you skip the line and get hired."
         },
         {
+            question: "Does this work on Naukri and Internshala?",
+            answer: "Yes, AI-E works on Naukri, LinkedIn, Internshala, Foundit, Indeed, and company career pages."
+        },
+        {
+            question: "Will this get my account banned on LinkedIn or Naukri?",
+            answer: "No. Unlike bots that apply without your knowledge, AI-E fills forms and waits for your confirmation before submitting. You are always in control."
+        },
+        {
             question: "Is this cheating?",
             answer: "No more than companies using ATS to filter you out is 'cheating'. We just level the playing field. You still have to do the interview and get the job; we just get you the interview."
         },
         {
-            question: "How does the 'Turbo' pack work?",
-            answer: "The Turbo pack gives you priority access to our most advanced automation agents. It's for power users who want to apply to 100+ jobs a week with high component personalization."
+            question: "Is my resume data safe?",
+            answer: "Your data is stored securely on Supabase and never shared with third parties. You can delete your profile at any time."
         },
         {
-            question: "Can I cancel specific plans?",
-            answer: "Yes. You can cancel anytime from your dashboard settings. No hidden fees, no bullshit."
+            question: "Do I need to pay to start using LastMile?",
+            answer: "No. The Free tier gives you access to the ATS Score Checker, basic Job Tracker, and 5 resume scans per month at no cost."
         }
     ]
 
