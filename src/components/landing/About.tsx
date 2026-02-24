@@ -38,6 +38,7 @@ export function About() {
                                     alt={member.name}
                                     width={160}
                                     height={160}
+                                    loading="lazy"
                                     className="w-full h-full object-cover object-[center_25%]"
                                 />
                             </div>

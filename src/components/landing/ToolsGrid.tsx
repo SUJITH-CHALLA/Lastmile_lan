@@ -60,7 +60,7 @@ export function ToolsGrid() {
         {
             title: "Interview Prep",
             desc: "AI mock interviews with real-time feedback.",
-            href: "#",
+            href: "/tools/interview-prep",
             tag: "COMING SOON"
         }
     ]
@@ -107,14 +107,15 @@ export function ToolsGrid() {
                 </div>
 
                 <div className="text-center mt-12">
-                    <Button
-                        size="lg"
-                        variant="outline"
-                        onClick={() => setShowAll(!showAll)}
-                        className="border-2 border-black shadow-neo h-14 text-lg"
-                    >
-                        {showAll ? "View Less Tools" : "View All Tools"}
-                    </Button>
+                    <Link href="/tools">
+                        <Button
+                            size="lg"
+                            variant="outline"
+                            className="border-2 border-black shadow-neo h-14 text-lg"
+                        >
+                            View All Tools
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </section>

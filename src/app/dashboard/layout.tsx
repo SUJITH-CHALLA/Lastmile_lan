@@ -6,6 +6,7 @@ export const metadata: Metadata = {
 }
 import { Sidebar } from "@/components/dashboard/Sidebar"
 import { AICopilot } from "@/components/dashboard/AICopilot"
+import { DemoBanner } from "@/components/dashboard/DemoBanner"
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -18,11 +19,14 @@ export default function DashboardLayout({
 }) {
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col md:flex-row font-sans">
+            {/* Demo Mode Banner */}
+            <DemoBanner />
+
             {/* Mobile Header (Visible only on small screens) */}
             <div className="md:hidden bg-white border-b-2 border-black p-4 flex justify-between items-center sticky top-0 z-50">
-                <Link href="/">
+                <Link href="/dashboard">
                     <Button variant="ghost" className="gap-2 pl-0 hover:bg-transparent font-bold">
-                        <ArrowLeft size={20} /> Back to Home
+                        <ArrowLeft size={20} /> Dashboard
                     </Button>
                 </Link>
                 <div className="font-black uppercase">AI-E Console</div>

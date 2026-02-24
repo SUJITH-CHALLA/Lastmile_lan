@@ -55,11 +55,11 @@ export function Hero() {
                             </Button>
                         </JoinWaitlistDialog>
 
-                        <a href="#how-it-works">
+                        <JoinWaitlistDialog>
                             <Button variant="outline" size="lg" className="text-base h-12 border-2 border-black shadow-neo hover:bg-gray-100 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg transition-all bg-white text-black font-bold">
                                 How it Works
                             </Button>
-                        </a>
+                        </JoinWaitlistDialog>
                     </motion.div>
                 </div>
 

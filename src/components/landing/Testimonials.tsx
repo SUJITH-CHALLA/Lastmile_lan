@@ -80,6 +80,7 @@ export function Testimonials() {
                                     <img
                                         src={review.image}
                                         alt={review.name}
+                                        loading="lazy"
                                         className="w-12 h-12 rounded-full border-2 border-black bg-gray-100"
                                     />
                                     <div>

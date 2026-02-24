@@ -7,7 +7,7 @@ export function CoreEngine() {
         <section className="py-20 bg-white border-b-2 border-black">
             <div className="container mx-auto px-4 md:px-8 text-center">
                 <h2 className="text-4xl md:text-5xl font-black uppercase mb-12">
-                    POWERED BY <span className="bg-black text-white px-2">AI-E</span>
+                    THE <span className="bg-black text-white px-2">AI-E</span> ENGINE
                 </h2>
 
                 <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">

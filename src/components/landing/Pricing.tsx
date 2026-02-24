@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Check } from "lucide-react"
 import { motion } from "framer-motion"
+import { JoinWaitlistDialog } from "@/components/ui/join-waitlist-dialog"
 
 export function Pricing() {
     const [isYearly, setIsYearly] = useState(false)
@@ -58,8 +59,10 @@ export function Pricing() {
                     {plans.map((plan, i) => (
                         <Card key={i} className={`relative p-8 border-2 border-black shadow-neo hover:shadow-neo-lg transition-all flex flex-col ${plan.popular ? "bg-white md:scale-105 z-10" : "bg-gray-50"}`}>
                             {plan.popular && (
-                                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-amber-400 text-black px-4 py-1 font-black uppercase border-2 border-black shadow-neo-sm transform -rotate-2">
-                                    Most Popular
+                                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-amber-400 text-black px-4 py-1 font-black uppercase border-2 border-black shadow-neo-sm transform -rotate-2 z-20">
+                                    <span className="relative">
+                                        🔥 Most Popular
+                                    </span>
                                 </div>
                             )}
                             <h3 className="text-lg font-black uppercase mb-2">{plan.name}</h3>
@@ -78,9 +81,11 @@ export function Pricing() {
                                 ))}
                             </div>
 
-                            <Button className={`w-full mt-auto border-2 border-black shadow-neo active:shadow-none font-bold text-base h-12 ${plan.popular ? "bg-primary text-black hover:bg-yellow-400" : "bg-white text-black hover:bg-gray-100"}`}>
-                                {plan.cta}
-                            </Button>
+                            <JoinWaitlistDialog>
+                                <Button className={`w-full mt-auto border-2 border-black shadow-neo active:shadow-none font-bold text-base h-12 ${plan.popular ? "bg-primary text-black hover:bg-yellow-400" : "bg-white text-black hover:bg-gray-100"}`}>
+                                    {plan.cta}
+                                </Button>
+                            </JoinWaitlistDialog>
                         </Card>
                     ))}
                 </div>

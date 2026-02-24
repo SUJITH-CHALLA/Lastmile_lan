@@ -19,6 +19,7 @@ export function Sidebar() {
     ]
 
     const secondaryNav = [
+        { name: "All Tools", href: "/tools", icon: <LayoutDashboard size={20} /> },
         { name: "Profile", href: "/dashboard/profile", icon: <User size={20} /> },
         { name: "Settings", href: "/dashboard/settings", icon: <Settings size={20} /> },
     ]
@@ -90,17 +91,11 @@ export function Sidebar() {
                     </Button>
                 </div>
 
-                <div className="flex gap-2">
-                    <Button variant="outline" onClick={() => { if (confirm('Are you sure you want to log out of AI-E Console?')) window.location.href = '/' }} className="flex-1 justify-center gap-2 border-2 text-xs border-black hover:bg-black hover:text-white transition-all font-bold">
+                <div className="flex gap-2 w-full">
+                    <Button variant="outline" onClick={() => { if (confirm('Are you sure you want to log out of AI-E Console?')) window.location.href = '/' }} className="flex-1 w-full justify-center gap-2 border-2 text-xs border-black hover:bg-black hover:text-white transition-all font-bold">
                         <LogOut size={16} />
                         Logout
                     </Button>
-                    <Link href="/" className="flex-1">
-                        <Button variant="outline" className="w-full justify-center gap-2 border-2 text-xs border-black bg-gray-100 hover:bg-gray-200 transition-all font-bold">
-                            <Home size={16} />
-                            Home
-                        </Button>
-                    </Link>
                 </div>
             </div>
         </aside>

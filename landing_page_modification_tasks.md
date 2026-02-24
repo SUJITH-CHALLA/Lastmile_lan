@@ -230,3 +230,36 @@
 - [x] 32.9 Missing page-level `<meta description>` on dashboard pages.
 - [x] 32.10 No visible loading skeleton or spinner state for job feed / API requests.
 - [x] 32.11 Company initial circles (V, L, S, P) have no color differentiation — Assign standard colors.
+
+## 33. Critical - Broken Routes and Dead Pages
+- [x] 33.1 Fix broken toolkit routes (show "Coming Soon" or modal).
+- [x] 33.2 "View All Tools" button has no destination.
+- [x] 33.3 Create a custom 404 error page.
+- [x] 33.4 "Start Winning" (Get Early Access) CTA has no destination.
+- [x] 33.5 "Join Waitlist" has no confirmed destination or form log.
+
+## 34. Navigation Logic Issues
+- [x] 34.1 Sidebar has "Back to Home" duplicated.
+- [x] 34.2 Dashboard sidebar has no route for Tools.
+- [x] 34.3 Landing page navbar # link targets might not match actual section IDs.
+- [x] 34.4 Sidebar logo links to `/` instead of `/dashboard`.
+- [ ] 34.5 No breadcrumbs or page title inside dashboard sub-pages.
+
+## 35. UI and Interface Logic Issues
+- [x] 35.1 "Ask AI-E" button on JobCard does nothing.
+- [x] 35.2 "Apply Now" (One-Click Apply) button on JobCard does nothing.
+- [x] 35.3 Pricing toggle (Monthly/Yearly) has no actual state logic / price change mapped.
+- [x] 35.4 FAQ accordion has no answer content.
+- [x] 35.5 "Most Popular" badge on Pro plan has no visual context.
+- [x] 35.6 Hero social proof "Files filled" metric needs to be tied to a realistic action.
+- [x] 35.7 No confirmation or success state after waitlist join submission.
+
+## 36. Structural and Layout Issues
+- [x] 36.1 The 3-step/5-step flow section and #how-it-works anchor are disconnected.
+- [x] 36.2 Testimonials section heading uses raw marketing text instead of h2 semantic title.
+- [x] 36.3 Footer links (Privacy, Terms, Twitter) point to `#` doing active misdirection.
+- [x] 36.4 Bottom scrolling marquee strips have no semantic purpose or label.
+- [x] 36.5 Team section CTA button sits inside the grid breaking layout logic.
+- [x] 36.6 Powered By AI-E and Meet AI-Engine state the exact same thing consecutively.
+- [x] 36.7 No `loading="lazy"` on below-the-fold images (team, testimonials).
+- [x] 36.8 Dashboard has no route protection visible / add Demo Mode banner.

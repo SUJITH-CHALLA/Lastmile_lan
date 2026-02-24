@@ -10,8 +10,8 @@ export function Solution() {
             <div className="container mx-auto px-4 md:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-                    <div className="order-2 lg:order-1 relative">
-                        <div className="bg-white border-2 border-black p-6 md:p-8 shadow-neo-lg relative z-10">
+                    <div className="order-2 lg:order-1 relative overflow-visible pr-2 pb-2">
+                        <div className="bg-white border-2 border-black p-6 md:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] relative z-10">
                             <div className="space-y-2">
                                 {[
                                     { step: 1, text: "Build Your Profile Once", bg: "bg-gray-100" },
@@ -41,9 +41,10 @@ export function Solution() {
                                                 whileInView={{ height: "auto", opacity: 1 }}
                                                 viewport={{ once: true }}
                                                 transition={{ delay: (i * 0.15) + 0.1, duration: 0.2 }}
-                                                className="flex justify-center py-1 overflow-hidden"
+                                                className="flex flex-col items-center py-1 overflow-hidden"
                                             >
-                                                <div className="w-0.5 h-6 bg-black border-l-2 border-dashed"></div>
+                                                <div className="w-0.5 h-4 bg-black"></div>
+                                                <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-black"></div>
                                             </motion.div>
                                         )}
                                     </div>
