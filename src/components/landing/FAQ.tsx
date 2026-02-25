@@ -11,7 +11,7 @@ export function FAQ() {
     const faqs = [
         {
             question: "What the f*ck is LastMile?",
-            answer: "LastMile is the unfair advantage you've been looking for. At its core is AI-E — the Application Intelligence Engine. It reads job descriptions, rewrites your resume, fills application forms, and generates cover letters — all triggered by a single click from you. We help you skip the line and get hired."
+            answer: "LastMile is an AI-powered job application platform built for Indian job seekers. At its core is AI-E — the Application Intelligence Engine — which reads job descriptions, tailors your resume, fills application forms, and generates cover letters. You click apply once. AI-E handles everything else."
         },
         {
             question: "Does this work on Naukri and Internshala?",
@@ -23,7 +23,7 @@ export function FAQ() {
         },
         {
             question: "Is this cheating?",
-            answer: "No more than companies using ATS to filter you out is 'cheating'. We just level the playing field. You still have to do the interview and get the job; we just get you the interview."
+            answer: "No. We never write fake experience or lie about your skills. AI-E makes sure your actual qualifications are presented in the format the hiring system rewards. That is not cheating — that is levelling the playing field."
         },
         {
             question: "Is my resume data safe?",
@@ -32,6 +32,14 @@ export function FAQ() {
         {
             question: "Do I need to pay to start using LastMile?",
             answer: "No. The Free tier gives you access to the ATS Score Checker, basic Job Tracker, and 5 resume scans per month at no cost."
+        },
+        {
+            question: "How does the Turbo pack work?",
+            answer: "Turbo gives you everything in Pro plus priority processing on all applications, faster AI-E response times, and a dedicated onboarding session to set up your profile for maximum match scores."
+        },
+        {
+            question: "Can I cancel or change my plan?",
+            answer: "Yes. You can cancel or change your plan at any time from your dashboard settings. No lock-in, no hidden fees. Your data stays yours even after cancellation."
         }
     ]
 
