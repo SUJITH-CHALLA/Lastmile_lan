@@ -101,7 +101,7 @@ export function Hero() {
             {/* Social Proof - Pinned to bottom */}
             <div className="absolute bottom-4 md:bottom-8 left-0 right-0 flex flex-col items-center gap-3">
                 <div className="flex items-center gap-4 bg-white px-6 py-3 border-2 border-black shadow-neo rounded-full">
-                    <div className="flex -space-x-4">
+                    <div className="flex -space-x-3">
                         {[1, 2, 3, 4].map((i) => (
                             <div key={i} className="relative w-10 h-10 rounded-full border-2 border-black overflow-hidden bg-gray-200">
                                 <img
@@ -112,7 +112,7 @@ export function Hero() {
                             </div>
                         ))}
                     </div>
-                    <p className="text-sm font-bold hidden sm:block">Joined by 1,200+ job seekers across India</p>
+                    <p className="text-sm font-bold hidden sm:block leading-tight">Joined by 1,200+ job seekers across India</p>
                 </div>
 
                 {/* Portal Compatibility Strip */}

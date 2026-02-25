@@ -32,19 +32,20 @@ export function About() {
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
                     {team.map((member, i) => (
                         <Card key={i} className="p-6 md:p-8 border-2 border-black shadow-neo bg-white flex flex-col items-center text-center hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg transition-all">
-                            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-black overflow-hidden mb-6 bg-gray-200 shrink-0">
+                            <div className="w-36 h-36 rounded-full border-2 border-black overflow-hidden mb-6 bg-gray-200 shrink-0">
                                 <img
                                     src={member.img}
                                     alt={member.name}
-                                    width={160}
-                                    height={160}
+                                    width={144}
+                                    height={144}
                                     loading="lazy"
                                     className="w-full h-full object-cover object-[center_25%]"
                                 />
                             </div>
                             <h3 className="text-xl md:text-2xl font-black uppercase mb-1">{member.name}</h3>
                             <p className="text-[10px] md:text-xs font-bold text-primary bg-black px-2 py-1 mb-3">{member.role}</p>
-                            <p className="text-gray-600 font-medium leading-tight text-sm">
+                            <p className="text-gray-600 font-medium leading-tight text-sm relative pl-4">
+                                <span className="absolute left-0 top-0 text-2xl font-black text-primary leading-none">“</span>
                                 {member.desc}
                             </p>
                         </Card>

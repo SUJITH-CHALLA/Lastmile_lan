@@ -36,17 +36,17 @@ export function Navbar() {
             <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
                 {/* Logo */}
                 <div className="flex items-center gap-3">
-                    <Link href="/" className="text-2xl font-black tracking-tighter uppercase flex items-center gap-2">
+                    <Link href="/" className="text-2xl font-black tracking-tighter uppercase flex items-center gap-2 leading-none">
                         <Logo className="w-10 h-10" />
                         LastMile.
                     </Link>
-                    <span className="hidden lg:inline-flex bg-yellow-200 border-2 border-black text-xs font-bold px-2 py-0.5 shadow-neo-sm transform transition-transform hover:-translate-y-0.5">
-                        India's #1 AI Job Copilot
+                    <span className="hidden lg:inline-flex items-center bg-yellow-200 border-2 border-black text-xs font-bold px-2 py-0.5 shadow-neo-sm transform transition-transform hover:-translate-y-0.5 leading-none" title="AI-E: Application Intelligence Engine">
+                        India's #1 AI Job Intelligence
                     </span>
                 </div>
 
-                {/* Desktop Nav */}
-                <div className="hidden md:flex items-center gap-8">
+                {/* Desktop Nav — centered links */}
+                <div className="hidden md:flex items-center gap-6">
                     {navLinks.map((link) => (
                         <Link
                             key={link.name}
@@ -56,13 +56,17 @@ export function Navbar() {
                             {link.name}
                         </Link>
                     ))}
+                </div>
+
+                {/* Desktop Actions */}
+                <div className="hidden md:flex items-center gap-3">
                     <Link href="/dashboard">
-                        <Button variant="outline" className="border-2 border-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] font-bold">
+                        <Button variant="ghost" className="border-2 border-black bg-transparent hover:bg-gray-100 font-bold h-10">
                             Dashboard
                         </Button>
                     </Link>
                     <JoinWaitlistDialog>
-                        <Button variant="default" className="shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px]">
+                        <Button className="bg-black text-white border-2 border-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg font-bold h-10">
                             Join Free Waitlist
                         </Button>
                     </JoinWaitlistDialog>

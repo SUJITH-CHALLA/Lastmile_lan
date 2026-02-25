@@ -22,7 +22,7 @@ export function ToolsGrid() {
             tag: "NEW"
         },
         {
-            title: "Auto-Apply Copilot",
+            title: "Auto-Apply Intelligence",
             desc: "Your one-click apply assistant. Fill any job form instantly and confirm before it submits.",
             href: "/tools/auto-apply-copilot",
             tag: "COMING SOON"
@@ -95,7 +95,7 @@ export function ToolsGrid() {
                             <Link href={tool.href} className="group block h-full">
                                 <Card className="h-full border-2 border-black shadow-neo hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1 hover:-translate-x-1 p-8 group-hover:bg-primary/5">
                                     <div className="flex justify-between items-start mb-4">
-                                        <div className="bg-black text-white px-2 py-1 text-xs font-bold uppercase">{tool.tag}</div>
+                                        <div className="bg-black text-white px-2 py-1 text-xs font-bold uppercase min-w-[80px] text-center">{tool.tag}</div>
                                         <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                     </div>
                                     <h3 className="text-2xl font-bold uppercase mb-2">{tool.title}</h3>

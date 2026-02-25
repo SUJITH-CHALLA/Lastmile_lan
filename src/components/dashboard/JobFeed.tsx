@@ -69,7 +69,7 @@ export function JobFeed() {
     }, [])
 
     return (
-        <div className="max-w-3xl mx-auto space-y-6">
+        <div className="max-w-5xl mx-auto space-y-6">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 gap-4">
                 <div>
                     <h1 className="text-4xl font-black uppercase mb-2">Your Feed</h1>
@@ -83,6 +83,8 @@ export function JobFeed() {
                     <ChevronDown size={16} />
                 </Button>
             </div>
+
+            <hr className="border-t-2 border-black" />
 
             <div className="grid grid-cols-3 gap-4 mb-8">
                 <div className="bg-white border-2 border-black p-4 shadow-neo flex flex-col items-center justify-center text-center">

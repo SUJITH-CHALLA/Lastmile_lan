@@ -40,7 +40,7 @@ export default function DashboardLayout({
                 {children}
             </main>
 
-            {/* Right Sidebar (AI Copilot) - Fixed width */}
+            {/* Right Sidebar (AI Intelligence) - Fixed width */}
             <AICopilot />
 
             {/* Global Floating Action Button */}

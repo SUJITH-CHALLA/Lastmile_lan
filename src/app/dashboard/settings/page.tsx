@@ -55,7 +55,7 @@ export default function SettingsPage() {
                 return (
                     <Card className="p-6 border-2 border-black shadow-neo bg-white">
                         <h3 className="font-black uppercase mb-2 flex items-center gap-2"><Bot size={20} /> AI-E Preferences</h3>
-                        <p className="text-sm font-bold text-gray-600 mb-6 pb-4 border-b-2 border-black">Customize how the AI Copilot applies and communicates on your behalf.</p>
+                        <p className="text-sm font-bold text-gray-600 mb-6 pb-4 border-b-2 border-black">Customize how the AI Intelligence applies and communicates on your behalf.</p>
 
                         <div className="space-y-8">
                             <div className="space-y-4">

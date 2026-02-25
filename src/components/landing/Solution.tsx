@@ -14,11 +14,11 @@ export function Solution() {
                         <div className="bg-white border-2 border-black p-6 md:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] relative z-10">
                             <div className="space-y-2">
                                 {[
-                                    { step: 1, text: "Build Your Profile Once", bg: "bg-gray-100" },
-                                    { step: 2, text: "Find a Job on Any Portal", bg: "bg-gray-100" },
-                                    { step: 3, text: "Click Apply", bg: "bg-gray-100" },
-                                    { step: 4, text: "AI-E Fills the Form + Tailors Resume + Writes Cover Letter", bg: "bg-gray-100" },
-                                    { step: 5, text: "Review and Submit in One Click", bg: "bg-green-200" }
+                                    { step: 1, text: "Build Your Profile Once", bg: "bg-gray-100", label: null },
+                                    { step: 2, text: "Find a Job on Any Portal", bg: "bg-gray-100", label: null },
+                                    { step: 3, text: "Click Apply", bg: "bg-gray-100", label: null },
+                                    { step: 4, text: "AI-E Fills the Form + Tailors Resume + Writes Cover Letter", bg: "bg-gray-100", label: null },
+                                    { step: 5, text: "Review and Submit in One Click", bg: "bg-green-200", label: "★ Final Step" }
                                 ].map((item, i) => (
                                     <div key={item.step}>
                                         <motion.div
@@ -28,11 +28,16 @@ export function Solution() {
                                             transition={{ delay: i * 0.15 }}
                                             className="flex items-center gap-3"
                                         >
-                                            <div className="w-8 h-8 rounded-full border-2 border-black bg-black text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-neo-sm">
+                                            <div className="w-8 h-8 rounded-full border-2 border-black bg-black text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-neo-sm relative -mr-1">
                                                 {item.step}
                                             </div>
-                                            <div className={`flex-1 ${item.bg} border-2 border-black p-2 font-bold text-sm shadow-neo-sm`}>
-                                                {item.text}
+                                            <div className={`flex-1 ${item.bg} border-2 border-black p-2 px-3 font-bold text-sm shadow-neo-sm min-h-[44px] flex items-center justify-between gap-2`}>
+                                                <span>{item.text}</span>
+                                                {item.label && (
+                                                    <span className="text-[10px] font-black uppercase bg-black text-green-300 px-1.5 py-0.5 whitespace-nowrap shrink-0">
+                                                        {item.label}
+                                                    </span>
+                                                )}
                                             </div>
                                         </motion.div>
                                         {i < 4 && (
@@ -41,7 +46,7 @@ export function Solution() {
                                                 whileInView={{ height: "auto", opacity: 1 }}
                                                 viewport={{ once: true }}
                                                 transition={{ delay: (i * 0.15) + 0.1, duration: 0.2 }}
-                                                className="flex flex-col items-center py-1 overflow-hidden"
+                                                className="flex flex-col items-center py-1 overflow-hidden ml-4"
                                             >
                                                 <div className="w-0.5 h-4 bg-black"></div>
                                                 <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-black"></div>
@@ -62,7 +67,7 @@ export function Solution() {
                             MEET AI-Engine. <br /> YOUR UNFAIR ADVANTAGE.
                         </h2>
                         <p className="text-base font-bold mb-8">
-                            AI-E is your personal job application assistant. It reads the job, rewrites your resume, fills the form, and writes the cover letter — you click apply once and it handles everything else.
+                            Meet AI-E — the Application Intelligence Engine. It reads the job, rewrites your resume, fills the form, and writes the cover letter — you click apply once and it handles everything else.
                         </p>
 
                         <ul className="space-y-4 mb-10">

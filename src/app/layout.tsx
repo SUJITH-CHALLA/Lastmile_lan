@@ -13,11 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LastMile — Get Hired 10x Faster | AI Job Application Copilot",
-  description: "India's AI-powered job application copilot. One-click apply, ATS resume tailoring, cover letters, and job tracking — all in one flow.",
+  title: "LastMile — Get Hired 10x Faster | AI Job Application Intelligence",
+  description: "LastMile is powered by AI-E — the Application Intelligence Engine. One-click apply, ATS resume tailoring, cover letters, and job tracking built for Indian job seekers.",
   openGraph: {
-    title: "LastMile — Get Hired 10x Faster | AI Job Application Copilot",
-    description: "India's AI-powered job application copilot. One-click apply, ATS resume tailoring, cover letters, and job tracking — all in one flow.",
+    title: "LastMile — Get Hired 10x Faster | AI Job Application Intelligence",
+    description: "India's AI-powered job application intelligence. One-click apply, ATS resume tailoring, cover letters, and job tracking — all in one flow.",
     url: "https://lastmile.work",
     siteName: "LastMile",
     images: [{ url: "https://lastmile.work/og-image.jpg" }],

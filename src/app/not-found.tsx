@@ -36,7 +36,7 @@ export default function NotFound() {
             </div>
 
             <div className="absolute bottom-8 text-sm font-bold text-gray-500">
-                LastMile AI-E Copilot
+                LastMile AI-E Intelligence
             </div>
         </div>
     )

@@ -39,12 +39,15 @@ export function AICopilot() {
     return (
         <aside className="w-80 h-screen bg-white border-l-2 border-black flex flex-col sticky top-0 hidden lg:flex">
             <div className="p-4 border-b-2 border-black bg-primary/10 flex items-center justify-between">
-                <h2 className="font-black uppercase flex items-center gap-2">
-                    <Bot size={24} />
-                    AI-E
-                    <Sparkles className="w-5 h-5 fill-black text-black" />
-                </h2>
-                <div className="w-8 h-8 rounded-full border-2 border-black bg-white flex items-center justify-center overflow-hidden">
+                <div>
+                    <h2 className="font-black uppercase flex items-center gap-2">
+                        <Bot size={24} />
+                        AI-E
+                        <Sparkles className="w-5 h-5 fill-black text-black" />
+                    </h2>
+                    <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Your personal job application assistant</p>
+                </div>
+                <div className="w-8 h-8 rounded-full border-2 border-black bg-white flex items-center justify-center overflow-hidden shrink-0">
                     <img src="https://api.dicebear.com/7.x/bottts/svg?seed=AIE" alt="AI-E Avatar" className="w-full h-full object-cover bg-gray-100" />
                 </div>
             </div>

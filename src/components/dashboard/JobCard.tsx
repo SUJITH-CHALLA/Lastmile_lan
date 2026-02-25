@@ -57,7 +57,7 @@ export function JobCard({ title, company, location, salary, match, tags, logoCol
                         </div>
 
                         {/* Actions & Match Score */}
-                        <div className="flex items-center gap-3 self-end md:self-auto">
+                        <div className="flex items-center gap-3 self-end md:self-auto shrink-0">
                             <Button variant="ghost" size="icon" className="border-2 border-black bg-white hover:bg-yellow-200">
                                 <Bookmark className="text-black" size={20} />
                             </Button>
@@ -78,7 +78,7 @@ export function JobCard({ title, company, location, salary, match, tags, logoCol
                         </div>
                     </div>
 
-                    <div className="flex gap-2 my-4 flex-wrap">
+                    <div className="flex gap-2 my-4 flex-wrap max-h-9 overflow-hidden">
                         {tags.map((tag) => (
                             <Badge key={tag} variant="secondary" className="border-2 border-black bg-gray-100 font-bold hover:bg-gray-200">
                                 {tag}

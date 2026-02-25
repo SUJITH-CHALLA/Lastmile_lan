@@ -23,7 +23,7 @@ export function Pricing() {
             name: "Pro",
             price: isYearly ? "1,049" : "1,499",
             desc: "For serious job seekers.",
-            features: ["Unlimited Scans", "AI Cover Letters", "Auto-Apply Copilot", "LinkedIn Optimization", "Works on Naukri, LinkedIn, Internshala, Foundit"],
+            features: ["Unlimited Scans", "AI Cover Letters", "Auto-Apply Intelligence", "LinkedIn Optimization", "Works on Naukri, LinkedIn, Internshala, Foundit"],
             cta: "Get Pro",
             popular: true
         },

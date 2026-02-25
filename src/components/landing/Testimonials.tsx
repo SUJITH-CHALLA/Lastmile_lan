@@ -69,14 +69,14 @@ export function Testimonials() {
                         }}
                     >
                         {[...reviews, ...reviews].map((review, i) => (
-                            <Card key={i} className="bg-primary/5 p-8 border-2 border-black shadow-neo w-[350px] shrink-0">
+                            <Card key={i} className="bg-primary/5 p-8 border-2 border-black shadow-neo w-[340px] shrink-0 flex flex-col">
                                 <div className="flex gap-1 mb-4">
                                     {[...Array(review.stars)].map((_, j) => (
                                         <Star key={j} className="fill-black text-black w-5 h-5" />
                                     ))}
                                 </div>
-                                <p className="text-lg font-bold mb-6 line-clamp-3">{review.text}</p>
-                                <div className="flex items-center gap-4">
+                                <p className="text-lg font-bold mb-6 line-clamp-3 flex-1">{review.text}</p>
+                                <div className="flex items-center gap-4 mt-auto">
                                     <img
                                         src={review.image}
                                         alt={review.name}

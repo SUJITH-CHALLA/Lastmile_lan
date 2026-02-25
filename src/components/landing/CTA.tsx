@@ -72,7 +72,7 @@ export function CTA() {
                     </motion.div>
                 </div>
 
-                <div className="flex flex-col md:flex-row justify-between items-center border-t-2 border-black pt-8 gap-4">
+                <div className="flex flex-col md:flex-row justify-between items-center border-t-2 border-black pt-8 gap-6">
                     <div className="font-black text-xl uppercase">LastMile</div>
                     <div className="flex flex-wrap justify-center gap-6 text-sm font-bold text-black">
                         <a href="/privacy" className="hover:underline">Privacy</a>
@@ -82,7 +82,7 @@ export function CTA() {
                         <a href="mailto:contact@lastmile.work" className="hover:underline">contact@lastmile.work</a>
                     </div>
                     <div className="text-black text-sm font-bold">
-                        © 2026 AI-E Inc.
+                        © 2026 LastMile by AI-E Inc.
                     </div>
                 </div>
             </div>

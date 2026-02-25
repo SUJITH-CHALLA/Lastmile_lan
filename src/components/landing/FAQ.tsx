@@ -11,7 +11,7 @@ export function FAQ() {
     const faqs = [
         {
             question: "What the f*ck is LastMile?",
-            answer: "LastMile is the unfair advantage you've been looking for. It uses AI to tailor your resume, write your cover letters, and track your applications automatically. We help you skip the line and get hired."
+            answer: "LastMile is the unfair advantage you've been looking for. At its core is AI-E — the Application Intelligence Engine. It reads job descriptions, rewrites your resume, fills application forms, and generates cover letters — all triggered by a single click from you. We help you skip the line and get hired."
         },
         {
             question: "Does this work on Naukri and Internshala?",

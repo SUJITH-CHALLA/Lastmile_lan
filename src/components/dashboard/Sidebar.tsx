@@ -30,6 +30,7 @@ export function Sidebar() {
                 <Link href="/dashboard" className="text-xl font-black uppercase flex items-center gap-2 hover:opacity-80 transition-opacity whitespace-nowrap">
                     AI-E Console
                 </Link>
+                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Application Intelligence Engine</p>
             </div>
 
             <div className="flex-1 overflow-y-auto">

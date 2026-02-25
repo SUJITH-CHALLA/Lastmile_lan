@@ -14,7 +14,7 @@ export function Features() {
         },
         {
             icon: <Send className="w-8 h-8 text-black" />,
-            title: "Auto-Apply Copilot",
+            title: "Auto-Apply Intelligence",
             description: "Stop filling out the same form fields 40 times. Click apply once — AI-E reads the form, fills every field from your profile, and waits for your one-click confirmation to submit.",
             bgColor: "bg-green-200"
         },
@@ -56,7 +56,7 @@ export function Features() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-start">
                     {features.map((feature, index) => (
                         <motion.div
                             key={index}
@@ -66,11 +66,11 @@ export function Features() {
                             transition={{ delay: index * 0.1 }}
                             className="h-full"
                         >
-                            <Card className="h-full bg-white border-2 border-black text-black p-8 hover:translate-x-[-4px] hover:translate-y-[-4px] transition-all shadow-neo hover:shadow-neo-lg flex flex-col items-start rounded-none">
-                                <div className={`mb-6 w-16 h-16 flex items-center justify-center rounded-none border-2 border-black shadow-neo-sm ${feature.bgColor}`}>
+                            <Card className="h-full bg-white border-2 border-black text-black p-8 hover:translate-x-[-4px] hover:translate-y-[-4px] transition-all shadow-neo hover:shadow-neo-lg flex flex-col items-start rounded-none gap-4">
+                                <div className={`w-16 h-16 flex items-center justify-center rounded-none border-2 border-black shadow-neo-sm shrink-0 ${feature.bgColor}`}>
                                     {feature.icon}
                                 </div>
-                                <h3 className="text-2xl font-black uppercase mb-3">{feature.title}</h3>
+                                <h3 className="text-2xl font-black uppercase">{feature.title}</h3>
                                 <p className="text-gray-700 font-medium leading-relaxed">{feature.description}</p>
                             </Card>
                         </motion.div>

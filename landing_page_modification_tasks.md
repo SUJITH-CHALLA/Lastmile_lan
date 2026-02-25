@@ -263,3 +263,68 @@
 - [x] 36.6 Powered By AI-E and Meet AI-Engine state the exact same thing consecutively.
 - [x] 36.7 No `loading="lazy"` on below-the-fold images (team, testimonials).
 - [x] 36.8 Dashboard has no route protection visible / add Demo Mode banner.
+
+## 37. Navbar Alignment
+- [x] 37.1 Badge vertical alignment — badge sits lower than logo text baseline.
+- [x] 37.2 Dashboard and Join Waitlist buttons look identical — differentiate visual weight.
+- [x] 37.3 Nav link spacing uneven on wider screens — center links drift right.
+
+## 38. Hero Section
+- [x] 38.1 Two CTAs not vertically baseline-aligned — force same height.
+- [x] 38.2 Avatar overlap amount inconsistent across 4 avatars.
+- [x] 38.3 Social proof text baseline not aligned with avatar row center.
+
+## 39. 5-Step Flow Card
+- [x] 39.1 Step 4 box taller than others — set fixed min-height on all step boxes.
+- [x] 39.2 Step number circles overlap amount inconsistent — fix to same left-offset.
+- [x] 39.3 Step 5 green background has no label — add "Final Step" tag.
+- [x] 39.4 Connector lines not centered horizontally within step boxes.
+- [x] 39.5 Right padding insufficient inside the flow card.
+
+## 40. Powered By AI-E Section
+- [x] 40.1 Numbering style inconsistent (circles vs plain 01/02/03) — unify.
+- [x] 40.2 Three AI-E steps have no visual connector between them.
+
+## 41. Features Section
+- [x] 41.1 Bottom row orphan cards center-justified instead of left-justified.
+- [x] 41.2 Feature card icon/title/description spacing uneven.
+
+## 42. Toolkit Section
+- [x] 42.1 Tag badges (FREE, POPULAR, etc.) inconsistent widths — set min-width.
+- [x] 42.2 "View All Tools" link needs clear visual treatment with arrow icon.
+
+## 43. Testimonials Marquee
+- [x] 43.1 Cards have no minimum width — fix to consistent w-80.
+- [x] 43.2 Avatar/name/role not consistently aligned — use mt-auto on author area.
+
+## 44. Pricing Section
+- [x] 44.1 Heading and toggle not sharing same center axis.
+- [x] 44.2 CTA buttons not bottom-aligned across cards — use mt-auto.
+
+## 45. Team Section
+- [x] 45.1 Founder/Co-Founder photo sizes inconsistent — set explicit equal dimensions.
+- [x] 45.2 Quote text has no quotation mark styling.
+
+## 46. FAQ Section
+- [x] 46.1 Question text and chevron icon not vertically centered.
+
+## 47. Footer
+- [x] 47.1 Footer layout not defined for mobile — needs flex-col breakpoint.
+- [x] 47.2 Copyright "AI-E Inc." doesn't match brand name "LastMile."
+
+## 48. Dashboard Alignment
+- [x] 48.1 Job card layout columns not locked to fixed widths.
+- [x] 48.2 Skill tags wrap inconsistently — add overflow handling.
+- [x] 48.3 "Apply Now" and "Ask AI-E" buttons not equal width.
+- [x] 48.4 AI-E chat section needs sticky behavior, not bottom-of-page.
+- [x] 48.5 Feed heading has no visual separator from job cards.
+- [x] 48.6 Dashboard has no page-level max-width container.
+
+## 49. AI-E Full Form & Branding
+- [x] 49.1 Solution section subtext — add "Meet AI-E — the Application Intelligence Engine." before existing text.
+- [x] 49.2 CoreEngine heading — add subtitle "AI-E: Application Intelligence Engine" below heading.
+- [x] 49.3 Navbar badge — add `title="AI-E: Application Intelligence Engine"` tooltip on hover.
+- [x] 49.4 Dashboard sidebar header — add "Application Intelligence Engine" subtitle below "AI-E Console".
+- [x] 49.5 Dashboard AI-E chat panel header — show full name and subtitle.
+- [x] 49.6 FAQ first answer — include AI-E full form definition in the answer.
+- [x] 49.7 Page meta description — include "Application Intelligence Engine" in meta.
