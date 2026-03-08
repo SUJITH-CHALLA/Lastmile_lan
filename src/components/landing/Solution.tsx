@@ -10,8 +10,8 @@ export function Solution() {
             <div className="container mx-auto px-4 md:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-                    <div className="order-2 lg:order-1 relative overflow-visible pr-2 pb-2">
-                        <div className="bg-white border-2 border-black p-6 md:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] relative z-10">
+                    <div className="order-2 lg:order-1 relative flex flex-col justify-center">
+                        <div className="bg-white border-2 border-black p-6 md:p-8 shadow-neo relative z-10">
                             <div className="space-y-2">
                                 {[
                                     { step: 1, text: "Build Your Profile Once", bg: "bg-gray-100", label: null },
@@ -56,7 +56,6 @@ export function Solution() {
                                 ))}
                             </div>
                         </div>
-                        <div className="absolute top-4 left-4 w-full h-full border-2 border-black bg-black -z-0"></div>
                         <p className="mt-8 text-sm font-bold text-center">
                             Works on Naukri, LinkedIn, Internshala, Foundit, Indeed, and company career pages.
                         </p>

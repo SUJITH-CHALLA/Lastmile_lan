@@ -6,7 +6,7 @@ export function LandingSkeleton() {
     return (
         <div className="min-h-screen bg-white">
             {/* Navbar Skeleton */}
-            <div className="h-20 border-b-2 border-black flex items-center justify-between px-8">
+            <div className="h-20 flex items-center justify-between px-8">
                 <Skeleton className="h-10 w-32" />
                 <div className="flex gap-4">
                     <Skeleton className="h-8 w-16" />
@@ -30,8 +30,8 @@ export function LandingSkeleton() {
                 </div>
 
                 {/* Right: Image/Graphic */}
-                <div className="bg-gray-100 p-12 flex items-center justify-center border-l-2 border-black">
-                    <Skeleton className="h-3/4 w-3/4 shadow-neo" />
+                <div className="bg-gray-50 p-12 flex items-center justify-center">
+                    <Skeleton className="h-3/4 w-3/4" />
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@ export function PricingSkeleton() {
     return (
         <div className="min-h-screen bg-yellow-50">
             {/* Header */}
-            <div className="h-20 border-b-2 border-black flex items-center justify-between px-8 bg-white">
+            <div className="h-20 flex items-center justify-between px-8 bg-white">
                 <Skeleton className="h-10 w-32" />
                 <Skeleton className="h-8 w-64" />
             </div>
@@ -17,7 +17,7 @@ export function PricingSkeleton() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
                     {[...Array(3)].map((_, i) => (
-                        <div key={i} className="border-2 border-black shadow-neo p-8 bg-white flex flex-col space-y-6 h-[500px]">
+                        <div key={i} className="p-8 bg-white flex flex-col space-y-6 h-[500px]">
                             <Skeleton className="h-8 w-1/2" />
                             <Skeleton className="h-16 w-3/4" />
                             <div className="space-y-4 pt-4 flex-1">

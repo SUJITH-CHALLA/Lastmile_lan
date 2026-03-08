@@ -11,22 +11,48 @@ import { JoinWaitlistDialog } from "@/components/ui/join-waitlist-dialog"
 export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    const [hoveredLink, setHoveredLink] = useState<string | null>(null)
+    const [activeSection, setActiveSection] = useState<string>("")
+
+    const navLinks = [
+        { name: "Features", href: "/#features" },
+        { name: "Tools", href: "/#tools" },
+        { name: "Pricing", href: "/#pricing" },
+        { name: "About", href: "/#about" },
+        { name: "FAQ", href: "/#faq" },
+    ]
 
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50)
+
+            // active section tracking
+            let current = "";
+            for (const link of navLinks) {
+                const id = link.href.split('#')[1];
+                if (id) {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        const rect = element.getBoundingClientRect();
+                        // Trigger when the top of the section goes above 60% of the viewport
+                        if (rect.top <= window.innerHeight * 0.6) {
+                            current = link.name;
+                        }
+                    }
+                }
+            }
+
+            // If user scrolled to the very bottom, highlight the last valid section
+            if (window.innerHeight + Math.round(window.scrollY) >= document.documentElement.scrollHeight - 50) {
+                current = "FAQ";
+            }
+
+            setActiveSection(current || "Features");
         }
         window.addEventListener("scroll", handleScroll)
+        handleScroll() // Initialize on mount
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
-
-    const navLinks = [
-        { name: "Features", href: "/#features" },
-        { name: "About", href: "/#about" },
-        { name: "Tools", href: "/#tools" },
-        { name: "Pricing", href: "/#pricing" },
-        { name: "FAQ", href: "/#faq" },
-    ]
 
     return (
         <nav
@@ -35,38 +61,44 @@ export function Navbar() {
         >
             <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
                 {/* Logo */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 shrink-0">
                     <Link href="/" className="text-2xl font-black tracking-tighter uppercase flex items-center gap-2 leading-none">
                         <Logo className="w-10 h-10" />
                         LastMile.
                     </Link>
-                    <span className="hidden lg:inline-flex items-center bg-yellow-200 border-2 border-black text-xs font-bold px-2 py-0.5 shadow-neo-sm transform transition-transform hover:-translate-y-0.5 leading-none" title="AI-E: Application Intelligence Engine">
+                    <span className="hidden lg:inline-flex items-center bg-yellow-200 border-2 border-black text-xs font-bold px-2 py-0.5 shadow-neo-sm transform transition-transform hover:-translate-y-0.5 leading-none shrink-0 whitespace-nowrap" title="AI-E: Application Intelligence Engine">
                         India's #1 AI Job Intelligence
                     </span>
                 </div>
 
                 {/* Desktop Nav — centered links */}
-                <div className="hidden md:flex items-center gap-6">
+                <div className="hidden md:flex items-center gap-1 flex-1 min-w-0 justify-center">
                     {navLinks.map((link) => (
                         <Link
                             key={link.name}
                             href={link.href}
-                            className="text-sm font-bold uppercase hover:underline underline-offset-4"
+                            onMouseEnter={() => setHoveredLink(link.name)}
+                            onMouseLeave={() => setHoveredLink(null)}
+                            className="relative px-4 py-2 text-sm font-bold uppercase whitespace-nowrap transition-colors z-10"
                         >
+                            {((hoveredLink === link.name) || (!hoveredLink && activeSection === link.name)) && (
+                                <motion.div
+                                    layoutId="nav-hover-pill"
+                                    className={`absolute inset-0 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] rounded-full -z-10 ${isScrolled ? "bg-white" : "bg-primary"
+                                        }`}
+                                    transition={{ type: "spring", duration: 0.4, bounce: 0 }}
+                                />
+                            )}
                             {link.name}
                         </Link>
                     ))}
                 </div>
 
                 {/* Desktop Actions */}
-                <div className="hidden md:flex items-center gap-3">
-                    <Link href="/dashboard">
-                        <Button variant="ghost" className="border-2 border-black bg-transparent hover:bg-gray-100 font-bold h-10">
-                            Dashboard
-                        </Button>
-                    </Link>
+                <div className="hidden md:flex items-center gap-3 shrink-0">
                     <JoinWaitlistDialog>
-                        <Button className="bg-black text-white border-2 border-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg font-bold h-10">
+                        <Button className={`text-black border-2 border-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg font-bold h-10 transition-colors ${isScrolled ? "bg-white hover:bg-gray-100" : "bg-primary hover:bg-primary/90"
+                            }`}>
                             Join Free Waitlist
                         </Button>
                     </JoinWaitlistDialog>
@@ -75,7 +107,8 @@ export function Navbar() {
                 {/* Mobile Toggle & CTA */}
                 <div className="flex md:hidden items-center gap-3">
                     <JoinWaitlistDialog>
-                        <Button variant="default" className="shadow-neo active:translate-x-[2px] active:translate-y-[2px] active:shadow-none text-xs px-3 h-10">
+                        <Button className={`text-black border-2 border-black shadow-neo active:translate-x-[2px] active:translate-y-[2px] active:shadow-none text-xs px-3 h-10 font-bold transition-colors ${isScrolled ? "bg-white hover:bg-gray-100" : "bg-primary hover:bg-primary/90"
+                            }`}>
                             Join Free
                         </Button>
                     </JoinWaitlistDialog>
@@ -108,11 +141,6 @@ export function Navbar() {
                                     {link.name}
                                 </Link>
                             ))}
-                            <Link href="/dashboard" onClick={() => setIsMobileMenuOpen(false)}>
-                                <Button variant="outline" className="w-full border-2 border-black shadow-neo font-bold mb-4">
-                                    Dashboard
-                                </Button>
-                            </Link>
                         </div>
                     </motion.div>
                 )}

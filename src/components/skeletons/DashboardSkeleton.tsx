@@ -6,7 +6,7 @@ export function DashboardSkeleton() {
     return (
         <div className="min-h-screen bg-white flex">
             {/* Sidebar Skeleton */}
-            <div className="w-64 border-r-2 border-black p-4 hidden md:flex flex-col gap-4">
+            <div className="w-64 p-4 hidden md:flex flex-col gap-4">
                 <Skeleton className="h-12 w-full mb-8" />
                 <Skeleton className="h-10 w-full" />
                 <Skeleton className="h-10 w-full" />
@@ -22,7 +22,7 @@ export function DashboardSkeleton() {
 
                 {/* Job Cards */}
                 {[...Array(3)].map((_, i) => (
-                    <div key={i} className="border-2 border-black p-6 space-y-4 shadow-neo-sm">
+                    <div key={i} className="p-6 space-y-4">
                         <div className="flex justify-between">
                             <div className="flex gap-4">
                                 <Skeleton className="h-12 w-12" />
@@ -41,7 +41,7 @@ export function DashboardSkeleton() {
             </div>
 
             {/* AI Copilot (Right Panel) */}
-            <div className="w-80 border-l-2 border-black p-4 hidden lg:flex flex-col gap-4">
+            <div className="w-80 p-4 hidden lg:flex flex-col gap-4">
                 <Skeleton className="h-12 w-full mb-4" />
                 <Skeleton className="h-full w-full" />
             </div>

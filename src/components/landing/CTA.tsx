@@ -17,12 +17,12 @@ export function CTA() {
 
                 <div className="flex flex-col md:flex-row gap-6 justify-center items-center mb-20 relative z-10">
                     <JoinWaitlistDialog>
-                        <Button size="lg" className="h-14 px-10 text-lg border-2 border-black bg-black text-white hover:bg-white hover:text-black shadow-neo hover:shadow-none transition-all">
+                        <Button size="lg" className="h-14 px-10 text-lg border-2 border-black bg-white text-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg hover:bg-white transition-all font-black">
                             Join Waitlist
                         </Button>
                     </JoinWaitlistDialog>
                     <a href="mailto:contact@lastmile.work">
-                        <Button size="lg" variant="outline" className="h-14 px-10 text-lg border-2 border-black text-black hover:bg-white bg-transparent">
+                        <Button size="lg" className="h-14 px-10 text-lg border-2 border-black bg-white text-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg hover:bg-white transition-all font-black">
                             Contact Sales
                         </Button>
                     </a>
@@ -52,7 +52,7 @@ export function CTA() {
                     </motion.div>
                 </div>
 
-                <div className="w-full overflow-hidden mb-20 border-y-2 border-black bg-black py-4 transform skew-y-1">
+                <div className="w-full overflow-hidden mb-20 border-y-2 border-black bg-gray-50 py-4 transform skew-y-1">
                     <motion.div
                         className="flex gap-12 w-max"
                         animate={{ x: ["-50%", "0%"] }}
@@ -65,7 +65,7 @@ export function CTA() {
                         {[...Array(2)].map((_, i) => (
                             <div key={i} className="flex gap-12 items-center">
                                 {["SOFTWARE ENGINEER", "PRODUCT MANAGER", "DATA SCIENTIST", "UX DESIGNER", "MARKETING", "SALES", "FOUNDER"].map((role, j) => (
-                                    <span key={j} className="text-2xl font-black text-white/20 uppercase">{role}</span>
+                                    <span key={j} className="text-2xl font-black text-black/20 uppercase">{role}</span>
                                 ))}
                             </div>
                         ))}

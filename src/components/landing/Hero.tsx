@@ -76,25 +76,63 @@ export function Hero() {
                             <div className="w-3 h-3 rounded-full border border-black bg-white"></div>
                             <div className="w-3 h-3 rounded-full border border-black bg-white"></div>
                         </div>
-                        <div className="space-y-4">
-                            <div className="h-40 bg-gray-100 border-2 border-black p-4 flex flex-col gap-3">
-                                <div className="h-4 w-1/3 bg-gray-300"></div>
-                                <div className="h-4 w-full bg-gray-200"></div>
-                                <div className="h-4 w-5/6 bg-gray-200"></div>
+                        <div className="flex flex-col sm:flex-row gap-4 p-4 border-2 border-black bg-gray-50 h-[280px] overflow-hidden">
+                            {/* Left Profile Area */}
+                            <div className="flex flex-col items-center gap-3 w-full sm:w-1/3 border-r-2 border-black/10 pr-4">
+                                <div className="relative w-16 h-16 rounded-full bg-gray-200 border-2 border-black flex items-center justify-center overflow-hidden">
+                                    {/* Profile Avatar Shape */}
+                                    <div className="absolute bottom-[-5px] w-10 h-10 rounded-full bg-gray-400"></div>
+                                    <div className="absolute top-[8px] w-6 h-6 rounded-full bg-gray-400"></div>
+                                </div>
+                                <div className="h-3 w-3/4 bg-gray-300 rounded-sm mt-1"></div>
+                                <div className="h-2 w-1/2 bg-gray-200 rounded-sm"></div>
+
+                                <div className="w-full space-y-2 mt-4">
+                                    <div className="h-2 w-full bg-gray-200 rounded-sm"></div>
+                                    <div className="h-2 w-5/6 bg-gray-200 rounded-sm"></div>
+                                    <div className="h-2 w-4/5 bg-gray-200 rounded-sm"></div>
+                                </div>
                             </div>
-                            <div className="flex gap-4">
-                                <div className="h-10 w-1/3 bg-primary border-2 border-black"></div>
-                                <div className="h-10 w-2/3 bg-gray-100 border-2 border-black"></div>
-                            </div>
-                            <div className="space-y-2">
-                                <div className="h-4 w-full bg-gray-100"></div>
-                                <div className="h-4 w-5/6 bg-gray-100"></div>
+
+                            {/* Right Form Fillup Area */}
+                            <div className="flex-1 flex flex-col gap-3">
+                                <div className="h-4 w-1/2 bg-gray-300 rounded-sm mb-1"></div>
+
+                                {/* Form Skeletons */}
+                                <div className="flex gap-3">
+                                    <div className="flex-1 space-y-1.5">
+                                        <div className="h-2 w-1/2 bg-gray-300 rounded-sm"></div>
+                                        <div className="h-8 w-full bg-white border-2 border-black/20 rounded-sm flex items-center px-2">
+                                            <div className="h-2 w-2/3 bg-gray-200 rounded-sm"></div>
+                                        </div>
+                                    </div>
+                                    <div className="flex-1 space-y-1.5">
+                                        <div className="h-2 w-1/2 bg-gray-300 rounded-sm"></div>
+                                        <div className="h-8 w-full bg-white border-2 border-black/20 rounded-sm flex items-center px-2">
+                                            <div className="h-2 w-1/2 bg-gray-200 rounded-sm"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-1.5 mt-1">
+                                    <div className="h-2 w-1/3 bg-gray-300 rounded-sm"></div>
+                                    <div className="h-16 w-full bg-white border-2 border-black/20 rounded-sm p-2 flex flex-col gap-1.5">
+                                        <div className="h-2 w-full bg-gray-200 rounded-sm"></div>
+                                        <div className="h-2 w-5/6 bg-gray-200 rounded-sm"></div>
+                                        <div className="h-2 w-4/6 bg-gray-200 rounded-sm"></div>
+                                    </div>
+                                </div>
+
+                                {/* Form Actions */}
+                                <div className="flex justify-end gap-2 mt-auto pt-2">
+                                    <div className="h-7 w-16 bg-gray-200 border border-black/20 rounded-sm"></div>
+                                    <div className="h-7 w-20 bg-primary border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] rounded-sm flex items-center justify-center">
+                                        <div className="h-1.5 w-8 bg-black/60 rounded-sm"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </motion.div>
-
-                    {/* Decorative Elements */}
-                    <div className="absolute -z-10 top-10 -right-10 w-full h-full bg-primary border-2 border-black"></div>
                 </div>
             </div>
 

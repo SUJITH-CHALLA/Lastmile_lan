@@ -47,9 +47,10 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://api.dicebear.com" />
         <link rel="dns-prefetch" href="https://api.dicebear.com" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-w-[1024px]`}
       >
         <Suspense fallback={null}>
           <GlobalLoader />

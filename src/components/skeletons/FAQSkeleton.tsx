@@ -6,7 +6,7 @@ export function FAQSkeleton() {
     return (
         <div className="min-h-screen bg-white">
             {/* Header Skeleton */}
-            <div className="h-20 border-b-2 border-black flex items-center justify-between px-8 bg-white">
+            <div className="h-20 flex items-center justify-between px-8 bg-white">
                 <Skeleton className="h-10 w-32" />
                 <Skeleton className="h-8 w-64" />
             </div>
@@ -17,7 +17,7 @@ export function FAQSkeleton() {
 
                 <div className="w-full space-y-4">
                     {[...Array(5)].map((_, i) => (
-                        <div key={i} className="border-2 border-black shadow-neo p-6 bg-white flex flex-col space-y-4">
+                        <div key={i} className="p-6 bg-white flex flex-col space-y-4 rounded-md">
                             <Skeleton className="h-6 w-3/4" />
                         </div>
                     ))}

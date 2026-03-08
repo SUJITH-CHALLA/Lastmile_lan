@@ -62,11 +62,11 @@ export function CoreEngine() {
                         whileInView={{ opacity: 1, scale: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.4, delay: 0.4 }}
-                        className="p-6 border-2 border-black shadow-neo bg-black text-white flex flex-col relative z-10 hover:-translate-y-2 hover:shadow-neo-lg transition-all"
+                        className="p-6 border-2 border-black shadow-neo bg-white text-black flex flex-col relative z-10 hover:-translate-y-2 hover:shadow-neo-lg transition-all"
                     >
-                        <div className="w-12 h-12 rounded-full border-2 border-white bg-white text-black flex items-center justify-center font-black text-lg mb-4">04</div>
+                        <div className="w-12 h-12 rounded-full border-2 border-black bg-black text-white flex items-center justify-center font-black text-lg mb-4">04</div>
                         <h3 className="text-xl font-bold uppercase mb-2">Apply</h3>
-                        <p className="font-medium text-gray-300">Submits your tailored application with one click. You review, you confirm, it's done.</p>
+                        <p className="font-medium text-gray-700">Submits your tailored application with one click. You review, you confirm, it's done.</p>
                     </motion.div>
                 </div>
             </div>

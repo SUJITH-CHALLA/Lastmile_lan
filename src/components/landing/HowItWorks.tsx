@@ -1,12 +1,13 @@
-import { ArrowRight, FileText, Search, MousePointerClick, Edit3, CheckCircle, Send, LayoutList } from "lucide-react"
+import { ArrowRight, FileText, Search, MousePointerClick, Edit3, CheckCircle, Send, LayoutList, PenTool } from "lucide-react"
 
 export function HowItWorks() {
     const steps = [
         { icon: <FileText size={24} />, text: "Profile Setup" },
         { icon: <Search size={24} />, text: "Job Discovery" },
-        { icon: <MousePointerClick size={24} />, text: "One-Click Apply" },
+        { icon: <PenTool size={24} />, text: "Resume Builder" },
         { icon: <Edit3 size={24} />, text: "AI Fills Form" },
         { icon: <CheckCircle size={24} />, text: "User Confirms" },
+        { icon: <MousePointerClick size={24} />, text: "One-Click Apply" },
         { icon: <Send size={24} />, text: "Application Submitted" },
         { icon: <LayoutList size={24} />, text: "Tracker Updated" }
     ]

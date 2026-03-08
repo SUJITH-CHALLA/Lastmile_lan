@@ -6,7 +6,7 @@ export function ToolsGridSkeleton() {
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col">
             {/* Header / Nav area */}
-            <div className="h-20 border-b-2 border-black bg-white flex items-center justify-between px-8">
+            <div className="h-20 bg-white flex items-center justify-between px-8">
                 <Skeleton className="h-10 w-32" />
                 <Skeleton className="h-8 w-64" />
             </div>
@@ -18,7 +18,7 @@ export function ToolsGridSkeleton() {
                 {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl">
                     {[...Array(6)].map((_, i) => (
-                        <div key={i} className="border-2 border-black shadow-neo p-8 bg-white flex flex-col min-h-[200px]">
+                        <div key={i} className="p-8 bg-white flex flex-col min-h-[200px]">
                             <div className="flex justify-between items-start mb-6">
                                 <Skeleton className="h-8 w-16" /> {/* Tag Placeholder */}
                                 <Skeleton className="h-8 w-8 rounded-full" /> {/* Icon Placeholder */}
