@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import { Navbar } from "@/components/layout/Navbar"
 import { Hero } from "@/components/landing/Hero"
 import { StatsBanner } from "@/components/landing/StatsBanner"
@@ -13,12 +16,17 @@ import { Pricing } from "@/components/landing/Pricing"
 import { FAQ } from "@/components/landing/FAQ"
 import { About } from "@/components/landing/About"
 import { CTA } from "@/components/landing/CTA"
+import FlowContainer from "@/components/flow/FlowContainer"
 
 export default function Home() {
+  const triggerFlow = () => {
+    window.location.href = '/create-profile'
+  }
+
   return (
     <main className="min-h-screen bg-background font-sans selection:bg-primary selection:text-black">
-      <Navbar />
-      <Hero />
+      <Navbar onGetStarted={triggerFlow} />
+      <Hero onGetStarted={triggerFlow} />
       <StatsBanner />
       <Problem />
       <Solution />
@@ -31,7 +39,7 @@ export default function Home() {
       <Pricing />
       <About />
       <FAQ />
-      <CTA />
+      <CTA onGetStarted={triggerFlow} />
     </main>
   )
 }

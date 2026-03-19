@@ -1,6 +1,6 @@
 "use client"
 
-import { JoinWaitlistDialog } from "@/components/ui/join-waitlist-dialog"
+
 import { Card } from "@/components/ui/card"
 import { Users, UserPlus } from "lucide-react"
 import Image from "next/image"

@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { JoinWaitlistDialog } from "@/components/ui/join-waitlist-dialog"
+
 
 export default function NotFound() {
     return (
@@ -27,11 +27,11 @@ export default function NotFound() {
                         </Button>
                     </Link>
 
-                    <JoinWaitlistDialog>
+                    <Link href="/create-profile">
                         <Button variant="outline" className="w-full h-14 text-lg border-2 border-black shadow-neo active:shadow-none bg-white font-bold transition-all hover:bg-gray-50 hover:-translate-x-1 hover:-translate-y-1">
-                            Join Free Waitlist
+                            Get Started
                         </Button>
-                    </JoinWaitlistDialog>
+                    </Link>
                 </div>
             </div>
 

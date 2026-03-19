@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    font-size: 16px;
     /* NO OTHER COLORS ALLOWED */
     --background: 0 0% 100%;
     /* #FFFFFF */
@@ -40,8 +41,8 @@
     --input: 0 0% 0%;
     --ring: 0 0% 0%;
 
-    --radius: 16px;
-    /* Playful Brutalism = Rounded Corners for 3D Effects */
+    --radius: 12px;
+    /* Clean 3D Effect for Cards & Buttons */
   }
 
   .dark {
@@ -78,6 +79,8 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
+    font-size: 1rem;
+    line-height: 1.5;
   }
 }
 
@@ -102,4 +105,9 @@
     border: 3px solid #000000;
     border-radius: var(--radius);
   }
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }

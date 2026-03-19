@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Check } from "lucide-react"
 import { motion } from "framer-motion"
-import { JoinWaitlistDialog } from "@/components/ui/join-waitlist-dialog"
+import Link from "next/link"
 
 export function Pricing() {
     const [isYearly, setIsYearly] = useState(false)
@@ -81,11 +81,11 @@ export function Pricing() {
                                 ))}
                             </div>
 
-                            <JoinWaitlistDialog>
+                            <Link href="/create-profile">
                                 <Button className={`w-full mt-auto border-2 border-black shadow-neo active:shadow-none font-bold text-base h-12 ${plan.popular ? "bg-primary text-black hover:bg-yellow-400" : "bg-white text-black hover:bg-gray-100"}`}>
                                     {plan.cta}
                                 </Button>
-                            </JoinWaitlistDialog>
+                            </Link>
                         </Card>
                     ))}
                 </div>

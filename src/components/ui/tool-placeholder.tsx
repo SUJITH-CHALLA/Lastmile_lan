@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { JoinWaitlistDialog } from "@/components/ui/join-waitlist-dialog"
+import Link from "next/link"
 import { AlertCircle } from "lucide-react"
 
 export default function ToolPlaceholder() {
@@ -16,15 +16,15 @@ export default function ToolPlaceholder() {
             </h1>
 
             <p className="text-lg text-gray-700 max-w-lg mx-auto font-medium">
-                This AI-powered tool is currently in closed beta. It will launch with the full platform release. Join the waitlist to be first in line when we open doors.
+                This AI-powered tool is currently in closed beta. It will launch with the full platform release. Get started now to build your profile.
             </p>
 
             <div className="pt-8 w-full max-w-sm">
-                <JoinWaitlistDialog>
+                <Link href="/create-profile">
                     <Button size="lg" className="w-full text-lg border-2 border-black bg-black text-white hover:bg-white hover:text-black shadow-neo hover:-translate-y-1 hover:-translate-x-1 hover:shadow-neo-lg transition-all h-14 font-bold">
-                        Join Free Waitlist
+                        Get Started
                     </Button>
-                </JoinWaitlistDialog>
+                </Link>
             </div>
         </div>
     )

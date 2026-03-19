@@ -2,17 +2,20 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 import { Logo } from "@/components/ui/logo"
-import { JoinWaitlistDialog } from "@/components/ui/join-waitlist-dialog"
 
-export function Navbar() {
+
+export function Navbar({ onGetStarted, hideLinks, rightSlot }: { onGetStarted?: () => void, hideLinks?: boolean, rightSlot?: React.ReactNode }) {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const [hoveredLink, setHoveredLink] = useState<string | null>(null)
     const [activeSection, setActiveSection] = useState<string>("")
+    const pathname = usePathname()
+    const isCreateProfilePage = pathname === "/create-profile" || hideLinks
 
     const navLinks = [
         { name: "Features", href: "/#features" },
@@ -56,62 +59,71 @@ export function Navbar() {
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b-2 border-black ${isScrolled ? "bg-primary py-3" : "bg-white py-5"
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b-2 border-black ${isScrolled ? "bg-primary py-2" : "bg-white py-4"
                 }`}
         >
-            <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
+            <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
                 {/* Logo */}
                 <div className="flex items-center gap-3 shrink-0">
                     <Link href="/" className="text-2xl font-black tracking-tighter uppercase flex items-center gap-2 leading-none">
                         <Logo className="w-10 h-10" />
                         LastMile.
                     </Link>
-                    <span className="hidden lg:inline-flex items-center bg-yellow-200 border-2 border-black text-xs font-bold px-2 py-0.5 shadow-neo-sm transform transition-transform hover:-translate-y-0.5 leading-none shrink-0 whitespace-nowrap" title="AI-E: Application Intelligence Engine">
+                    <span className="hidden lg:inline-flex items-center bg-yellow-200 border-2 border-black text-[10px] font-bold px-2 py-0.5 shadow-neo-sm transform transition-transform hover:-translate-y-0.5 leading-none shrink-0 whitespace-nowrap" title="AI-E: Application Intelligence Engine">
                         India's #1 AI Job Intelligence
                     </span>
                 </div>
 
                 {/* Desktop Nav — centered links */}
-                <div className="hidden md:flex items-center gap-1 flex-1 min-w-0 justify-center">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.name}
-                            href={link.href}
-                            onMouseEnter={() => setHoveredLink(link.name)}
-                            onMouseLeave={() => setHoveredLink(null)}
-                            className="relative px-4 py-2 text-sm font-bold uppercase whitespace-nowrap transition-colors z-10"
-                        >
-                            {((hoveredLink === link.name) || (!hoveredLink && activeSection === link.name)) && (
-                                <motion.div
-                                    layoutId="nav-hover-pill"
-                                    className={`absolute inset-0 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] rounded-full -z-10 ${isScrolled ? "bg-white" : "bg-primary"
-                                        }`}
-                                    transition={{ type: "spring", duration: 0.4, bounce: 0 }}
-                                />
-                            )}
-                            {link.name}
-                        </Link>
-                    ))}
-                </div>
+                {!hideLinks && (
+                    <div className="hidden md:flex items-center gap-1 flex-1 min-w-0 justify-center">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.name}
+                                href={link.href}
+                                onMouseEnter={() => setHoveredLink(link.name)}
+                                onMouseLeave={() => setHoveredLink(null)}
+                                className="relative px-3 py-1.5 text-base font-bold uppercase whitespace-nowrap transition-colors z-10"
+                            >
+                                {((hoveredLink === link.name) || (!hoveredLink && activeSection === link.name)) && (
+                                    <motion.div
+                                        layoutId="nav-hover-pill"
+                                        className={`absolute inset-0 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] rounded-full -z-10 ${isScrolled ? "bg-white" : "bg-primary"
+                                            }`}
+                                        transition={{ type: "spring", duration: 0.4, bounce: 0 }}
+                                    />
+                                )}
+                                {link.name}
+                            </Link>
+                        ))}
+                    </div>
+                )}
 
                 {/* Desktop Actions */}
                 <div className="hidden md:flex items-center gap-3 shrink-0">
-                    <JoinWaitlistDialog>
-                        <Button className={`text-black border-2 border-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg font-bold h-10 transition-colors ${isScrolled ? "bg-white hover:bg-gray-100" : "bg-primary hover:bg-primary/90"
+                    {rightSlot ? rightSlot : (
+                        <Button 
+                            onClick={() => window.location.href = isCreateProfilePage ? '/' : '/create-profile'}
+                            className={`text-black border-2 border-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg font-bold h-10 px-6 transition-colors ${isScrolled ? "bg-white hover:bg-gray-100" : "bg-primary hover:bg-primary/90"
                             }`}>
-                            Join Free Waitlist
+                            {isCreateProfilePage ? "← Back to Home" : "Get Started"}
                         </Button>
-                    </JoinWaitlistDialog>
+                    )}
                 </div>
 
                 {/* Mobile Toggle & CTA */}
                 <div className="flex md:hidden items-center gap-3">
-                    <JoinWaitlistDialog>
-                        <Button className={`text-black border-2 border-black shadow-neo active:translate-x-[2px] active:translate-y-[2px] active:shadow-none text-xs px-3 h-10 font-bold transition-colors ${isScrolled ? "bg-white hover:bg-gray-100" : "bg-primary hover:bg-primary/90"
+                    {rightSlot ? rightSlot : (
+                        <Button 
+                            onClick={() => {
+                                setIsMobileMenuOpen(false);
+                                window.location.href = isCreateProfilePage ? '/' : '/create-profile';
+                            }}
+                            className={`text-black border-2 border-black shadow-neo active:translate-x-[2px] active:translate-y-[2px] active:shadow-none text-xs px-3 h-9 font-bold transition-colors ${isScrolled ? "bg-white hover:bg-gray-100" : "bg-primary hover:bg-primary/90"
                             }`}>
-                            Join Free
+                            {isCreateProfilePage ? "← Back to Home" : "Get Started"}
                         </Button>
-                    </JoinWaitlistDialog>
+                    )}
                     <button
                         className="p-2 border-2 border-black shadow-neo active:translate-x-[2px] active:translate-y-[2px] active:shadow-none bg-white"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

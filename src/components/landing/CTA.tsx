@@ -1,10 +1,10 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { JoinWaitlistDialog } from "@/components/ui/join-waitlist-dialog"
+
 import { motion } from "framer-motion"
 
-export function CTA() {
+export function CTA({ onGetStarted }: { onGetStarted?: () => void }) {
     return (
         <footer className="bg-primary text-black py-20 border-t-2 border-black">
             <div className="container mx-auto px-4 md:px-8 text-center">
@@ -16,11 +16,13 @@ export function CTA() {
                 </p>
 
                 <div className="flex flex-col md:flex-row gap-6 justify-center items-center mb-20 relative z-10">
-                    <JoinWaitlistDialog>
-                        <Button size="lg" className="h-14 px-10 text-lg border-2 border-black bg-white text-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg hover:bg-white transition-all font-black">
-                            Join Waitlist
-                        </Button>
-                    </JoinWaitlistDialog>
+                    <Button 
+                        onClick={onGetStarted}
+                        size="lg" 
+                        className="h-14 px-10 text-lg border-2 border-black bg-white text-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg hover:bg-white transition-all font-black"
+                    >
+                        Get Started
+                    </Button>
                     <a href="mailto:contact@lastmile.work">
                         <Button size="lg" className="h-14 px-10 text-lg border-2 border-black bg-white text-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg hover:bg-white transition-all font-black">
                             Contact Sales
