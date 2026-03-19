@@ -1,5 +1,5 @@
 {
-    "buildCommand": "NEXT_TELEMETRY_DISABLED=1 next build",
+    "buildCommand": "NEXT_TELEMETRY_DISABLED=1 NODE_OPTIONS='--max-old-space-size=4096' next build",
     "framework": "nextjs",
     "installCommand": "npm install --legacy-peer-deps"
 }
