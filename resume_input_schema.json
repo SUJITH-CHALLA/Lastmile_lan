@@ -1,0 +1,233 @@
+{
+  "_schema_version": "1.0.0",
+  "_description": "Resume AI Rephrasing Input Schema. Feed this to the AI model with the system prompt defined in `_ai_instructions`. The AI will return a structured `resume_output` object with improved, role-aligned content.",
+
+  "_ai_instructions": {
+    "task": "You are a professional resume writer. Using the `resume_input` object below, generate a polished, properly structured resume in `resume_output` format. Follow these rules strictly:",
+    "rules": [
+      "1. REPHRASE all bullet points to be achievement-oriented, starting with strong action verbs (e.g., Streamlined, Reconciled, Spearheaded, Optimized).",
+      "2. ADD QUANTIFIED METRICS wherever missing — infer realistic numbers based on role context if not provided. Mark inferred values with a flag `inferred: true`.",
+      "3. EXPAND thin descriptions — if fewer than 3 bullets exist for a role, generate additional relevant bullets based on the job title and industry.",
+      "4. REWRITE the professional summary to be concise (3–4 lines), impactful, and tailored to the target_role.",
+      "5. DEDUPLICATE skills — remove repeated entries, group by category.",
+      "6. ALIGN all content to the `target_role` and `industry` fields.",
+      "7. FLAG inconsistencies (e.g., work experience bullets that don't match the job title) in `_quality_flags`.",
+      "8. DO NOT fabricate institutions, dates, or certifications — only rephrase what exists.",
+      "9. Output must strictly follow the `resume_output` JSON schema provided below.",
+      "10. Maintain a formal, professional tone throughout."
+    ]
+  },
+
+  "resume_input": {
+    "meta": {
+      "target_role": "Accountant",
+      "industry": "Finance & Accounting",
+      "experience_level": "Mid-Senior",
+      "location_preference": "Dubai, UAE",
+      "language": "English"
+    },
+
+    "personal_info": {
+      "full_name": "JITHIN JOSEPH",
+      "current_title": "Accountant",
+      "email": "hyvusresumes@gmail.com",
+      "phones": ["+971 12345678", "+91 1234567890"],
+      "location": "Dubai, UAE",
+      "linkedin": "LinkedIn",
+      "passport_number": "P735372",
+      "passport_expiry": "23/12/2030",
+      "passport_place_of_issue": "Kochi, Kerala",
+      "nationality": "Indian",
+      "visa_status": "Visit Visa",
+      "availability": "Immediate Joiner",
+      "languages_spoken": [
+        { "language": "English", "proficiency": "Read, Write, Speak" },
+        { "language": "Malayalam", "proficiency": "Read, Write, Speak" },
+        { "language": "Hindi", "proficiency": "Read, Write, Speak" }
+      ]
+    },
+
+    "professional_summary_raw": "Experienced accounting and finance professional with over 6 years of expertise in managing financial operations, reporting, and audits across diverse business environments. Skilled in IFRS-based accounting, reconciliation, and tax compliance, with proven success in improving process accuracy and efficiency. Adept at handling ERP systems including Tally and QuickBooks, preparing MIS reports, and enduring compliance with audit standards. Recognized for decisions, and team work to meet business and deadlines effectively.",
+
+    "core_skills_raw": [
+      "Accounting Support",
+      "Financial Record Maintenance",
+      "Data Entry & Reconciliation",
+      "Invoice Processing",
+      "Financial Reporting",
+      "Business Operations Support",
+      "Marketing & Sales",
+      "Attention to Detail",
+      "Analytical Thinking",
+      "Communication",
+      "Problem-Solving",
+      "Time Management",
+      "MS Excel (VLOOKUP, Pivot Tables, Reports)",
+      "Google Sheets",
+      "CRM Software"
+    ],
+    "_skills_issue": "Several skills are duplicated (Accounting Support x2, Financial Record Maintenance x2, Analytical Thinking x2, Communication x2, Problem-Solving x2). Marketing & Sales is misaligned with the Accountant role. AI should deduplicate and restructure by category.",
+
+    "work_experience_raw": [
+      {
+        "company": "MANAPPURAM ASSET FINANCE LTD",
+        "location": "Kochi, Kerala, India",
+        "title": "Accountant",
+        "start_date": "Jan 2024",
+        "end_date": "Feb 2025",
+        "bullets_raw": [
+          "Successfully contributed to the planning and execution of multiple digital marketing campaigns, resulting in increased brand visibility and engagement metrics across various target audiences by 15% within three months.",
+          "Managed and optimized social media presence on platforms like Instagram and Facebook, crafting compelling content and actively engaging with followers to grow audience interaction by 20%.",
+          "Collaborated effectively with senior accountants on reconciliation tasks, proactively identifying and resolving discrepancies to ensure precise alignment between internal records and external bank statements.",
+          "Conducted thorough keyword research and in-depth competitor analysis to identify market opportunities, strategically informing content strategies and improving search engine ranking potential by identifying top 10 keywords."
+        ],
+        "_issues": [
+          "Bullets 1, 2, and 4 are about digital marketing — completely misaligned with the Accountant role at a finance company.",
+          "Only bullet 3 is accounting-relevant.",
+          "AI should flag and replace marketing bullets with role-appropriate accounting tasks (e.g., financial reporting, ledger management, audit support, MIS reporting, tax filing, receivables/payables)."
+        ]
+      },
+      {
+        "company": "E FITNESS CENTER",
+        "location": "Thiruvananthapuram, Kerala, India",
+        "title": "Accountant",
+        "start_date": "Jan 2015",
+        "end_date": "Dec 2023",
+        "bullets_raw": [
+          "Accurately processed daily accounting entries and meticulously tracked expenses using specialized software, ensuring high financial data integrity and significantly reducing reconciliation errors by 5%.",
+          "Collaborated effectively with senior accountants on reconciliation tasks, proactively identifying and resolving discrepancies to ensure precise alignment between internal records and external bank statements.",
+          "Managed and optimized social media presence on platforms like Instagram and Facebook, crafting compelling content and actively engaging with followers to grow audience interaction by 20%."
+        ],
+        "_issues": [
+          "Bullet 3 is a copy-paste of a marketing bullet — irrelevant to the Accountant role.",
+          "Bullet 2 is a duplicate of a bullet from Manappuram.",
+          "AI should replace irrelevant/duplicate bullets and add at least 2 new role-aligned bullets."
+        ]
+      }
+    ],
+
+    "education_raw": [
+      {
+        "degree": "MBA",
+        "specialization": "Finance & Marketing",
+        "institution": "Bharathiyar University",
+        "college": "Saint Thomas College Kollur",
+        "location": "Thrissur, Kerala, India",
+        "start_date": "Feb 2019",
+        "end_date": "Jan 2021"
+      },
+      {
+        "degree": "B Com",
+        "specialization": "Finance",
+        "institution": "University of Calicut",
+        "college": "Saint Thomas College Paiveli",
+        "location": "Kozhikode, Kerala, India",
+        "start_date": "Jun 2015",
+        "end_date": "Mar 2018"
+      },
+      {
+        "degree": "Plus Two",
+        "specialization": "Commerce",
+        "institution": "Kerala Board of Higher Secondary Education",
+        "college": "St. Joseph's International Senior Secondary School",
+        "location": "Thrissur, Kerala, India",
+        "start_date": "Apr 2013",
+        "end_date": "Jan 2015"
+      }
+    ],
+
+    "certifications_raw": [
+      {
+        "name": "Chartered Accountant (CA)",
+        "issued_by": "Institute of Chartered Accountants of India (ICAI)",
+        "description_raw": "Focuses on financial management."
+      },
+      {
+        "name": "Certified Management Accountant (CMA)",
+        "issued_by": null,
+        "description_raw": "Focuses on management accounting, cost control, and strategic financial planning."
+      },
+      {
+        "name": "Tally Prime Certification",
+        "issued_by": null,
+        "description_raw": "Demonstrates proficiency in computerized accounting and financial reporting using Tally software."
+      }
+    ]
+  },
+
+  "resume_output_schema": {
+    "_note": "AI must populate this object. All fields marked GENERATE must be AI-generated. Fields marked KEEP can be used as-is. Fields marked REPHRASE must be improved.",
+
+    "personal_info": "KEEP — use as provided in resume_input.personal_info",
+
+    "professional_summary": {
+      "action": "REPHRASE + IMPROVE",
+      "constraints": "3–4 sentences. Start with years of experience and role. Mention key tools (Tally, QuickBooks, IFRS). End with value proposition for UAE market.",
+      "output_field": "professional_summary"
+    },
+
+    "core_skills": {
+      "action": "DEDUPLICATE + RESTRUCTURE",
+      "output_structure": {
+        "technical_skills": [],
+        "accounting_tools": [],
+        "soft_skills": []
+      }
+    },
+
+    "work_experience": {
+      "action": "REPHRASE + FIX + EXPAND",
+      "per_role": {
+        "company": "KEEP",
+        "location": "KEEP",
+        "title": "KEEP",
+        "start_date": "KEEP",
+        "end_date": "KEEP",
+        "bullets": {
+          "action": "REPHRASE all, REPLACE flagged irrelevant ones, ADD if fewer than 4",
+          "format": "Start with action verb. Include metric where possible. Max 2 lines per bullet.",
+          "min_bullets": 4,
+          "max_bullets": 5,
+          "inferred_metric_flag": true
+        }
+      }
+    },
+
+    "education": {
+      "action": "KEEP + FORMAT",
+      "output_structure": [
+        {
+          "degree": "",
+          "specialization": "",
+          "institution": "",
+          "college": "",
+          "location": "",
+          "duration": ""
+        }
+      ]
+    },
+
+    "certifications": {
+      "action": "REPHRASE descriptions",
+      "constraints": "Each description should be 1 concise sentence highlighting relevance to the Accountant role.",
+      "output_structure": [
+        {
+          "name": "",
+          "issued_by": "",
+          "relevance_description": ""
+        }
+      ]
+    },
+
+    "additional_info": {
+      "action": "KEEP",
+      "fields": ["languages_spoken", "passport_number", "passport_expiry", "passport_place_of_issue", "nationality", "visa_status", "availability"]
+    },
+
+    "_quality_flags": {
+      "action": "GENERATE",
+      "description": "List all issues detected in the original resume that were corrected. Include: duplicate bullets, misaligned content, missing metrics, weak verbs, formatting inconsistencies.",
+      "output_field": "_quality_flags"
+    }
+  }
+}
