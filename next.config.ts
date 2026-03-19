@@ -5,7 +5,11 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true
   },
-  experimental: {}
+  experimental: {
+    turbo: {
+      rules: {}
+    }
+  }
 };
 
 export default nextConfig;
