@@ -1,10 +1,11 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-
+import { JoinWaitlistDialog } from "@/components/ui/join-waitlist-dialog"
 import { motion } from "framer-motion"
 
 export function CTA({ onGetStarted }: { onGetStarted?: () => void }) {
+    const isWaitlistMode = process.env.NEXT_PUBLIC_WAITLIST_MODE === "true"
     return (
         <footer className="bg-primary text-black py-20 border-t-2 border-black">
             <div className="container mx-auto px-4 md:px-8 text-center">
@@ -16,13 +17,24 @@ export function CTA({ onGetStarted }: { onGetStarted?: () => void }) {
                 </p>
 
                 <div className="flex flex-col md:flex-row gap-6 justify-center items-center mb-20 relative z-10">
-                    <Button 
-                        onClick={onGetStarted}
-                        size="lg" 
-                        className="h-14 px-10 text-lg border-2 border-black bg-white text-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg hover:bg-white transition-all font-black"
-                    >
-                        Get Started
-                    </Button>
+                    {isWaitlistMode ? (
+                        <JoinWaitlistDialog>
+                            <Button
+                                size="lg"
+                                className="h-14 px-10 text-lg border-2 border-black bg-white text-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg hover:bg-white transition-all font-black"
+                            >
+                                Get Started
+                            </Button>
+                        </JoinWaitlistDialog>
+                    ) : (
+                        <Button
+                            size="lg"
+                            onClick={() => window.location.href = '/create-profile'}
+                            className="h-14 px-10 text-lg border-2 border-black bg-white text-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg hover:bg-white transition-all font-black"
+                        >
+                            Get Started
+                        </Button>
+                    )}
                     <a href="mailto:contact@lastmile.work">
                         <Button size="lg" className="h-14 px-10 text-lg border-2 border-black bg-white text-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg hover:bg-white transition-all font-black">
                             Contact Sales

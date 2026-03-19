@@ -2,11 +2,13 @@
 
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
+import { JoinWaitlistDialog } from "@/components/ui/join-waitlist-dialog"
 
 
 import Image from "next/image"
 
 export function Hero({ onGetStarted }: { onGetStarted?: () => void }) {
+    const isWaitlistMode = process.env.NEXT_PUBLIC_WAITLIST_MODE === "true"
     return (
         <section className="min-h-screen flex items-center justify-center bg-white border-b-2 border-black pt-20 relative px-4 overflow-hidden">
             {/* Background Image with CSS Animation */}
@@ -49,17 +51,28 @@ export function Hero({ onGetStarted }: { onGetStarted?: () => void }) {
                         transition={{ delay: 0.2 }}
                         className="flex gap-4"
                     >
-                        <Button 
-                            onClick={() => window.location.href = '/create-profile'}
-                            size="lg" 
-                            className="text-base h-12 px-6 border-2 border-black bg-primary text-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg transition-all font-bold"
-                        >
-                            Get Started — It's Free
-                        </Button>
+                        {isWaitlistMode ? (
+                            <JoinWaitlistDialog>
+                                <Button
+                                    size="lg"
+                                    className="text-base h-12 px-6 border-2 border-black bg-primary text-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg transition-all font-bold"
+                                >
+                                    Get Started — It's Free
+                                </Button>
+                            </JoinWaitlistDialog>
+                        ) : (
+                            <Button
+                                size="lg"
+                                onClick={() => window.location.href = '/create-profile'}
+                                className="text-base h-12 px-6 border-2 border-black bg-primary text-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg transition-all font-bold"
+                            >
+                                Get Started — It's Free
+                            </Button>
+                        )}
 
-                        <Button 
-                            variant="outline" 
-                            size="lg" 
+                        <Button
+                            variant="outline"
+                            size="lg"
                             className="text-base h-12 border-2 border-black shadow-neo hover:bg-gray-100 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg transition-all bg-white text-black font-bold"
                         >
                             How it Works

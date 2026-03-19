@@ -7,6 +7,8 @@ import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 import { Logo } from "@/components/ui/logo"
+import { JoinWaitlistDialog } from "@/components/ui/join-waitlist-dialog"
+
 
 
 export function Navbar({ onGetStarted, hideLinks, rightSlot }: { onGetStarted?: () => void, hideLinks?: boolean, rightSlot?: React.ReactNode }) {
@@ -16,6 +18,7 @@ export function Navbar({ onGetStarted, hideLinks, rightSlot }: { onGetStarted?: 
     const [activeSection, setActiveSection] = useState<string>("")
     const pathname = usePathname()
     const isCreateProfilePage = pathname === "/create-profile" || hideLinks
+    const isWaitlistMode = process.env.NEXT_PUBLIC_WAITLIST_MODE === "true"
 
     const navLinks = [
         { name: "Features", href: "/#features" },
@@ -102,27 +105,38 @@ export function Navbar({ onGetStarted, hideLinks, rightSlot }: { onGetStarted?: 
                 {/* Desktop Actions */}
                 <div className="hidden md:flex items-center gap-3 shrink-0">
                     {rightSlot ? rightSlot : (
-                        <Button 
-                            onClick={() => window.location.href = isCreateProfilePage ? '/' : '/create-profile'}
-                            className={`text-black border-2 border-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg font-bold h-10 px-6 transition-colors ${isScrolled ? "bg-white hover:bg-gray-100" : "bg-primary hover:bg-primary/90"
-                            }`}>
-                            {isCreateProfilePage ? "← Back to Home" : "Get Started"}
-                        </Button>
+                        isWaitlistMode ? (
+                            <JoinWaitlistDialog>
+                                <Button className="border-2 border-black bg-primary text-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg transition-all font-bold h-10 px-6">
+                                    Get Started
+                                </Button>
+                            </JoinWaitlistDialog>
+                        ) : (
+                            <Button
+                                onClick={() => window.location.href = '/create-profile'}
+                                className="border-2 border-black bg-primary text-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg transition-all font-bold h-10 px-6">
+                                Get Started
+                            </Button>
+                        )
                     )}
                 </div>
 
                 {/* Mobile Toggle & CTA */}
                 <div className="flex md:hidden items-center gap-3">
                     {rightSlot ? rightSlot : (
-                        <Button 
-                            onClick={() => {
-                                setIsMobileMenuOpen(false);
-                                window.location.href = isCreateProfilePage ? '/' : '/create-profile';
-                            }}
-                            className={`text-black border-2 border-black shadow-neo active:translate-x-[2px] active:translate-y-[2px] active:shadow-none text-xs px-3 h-9 font-bold transition-colors ${isScrolled ? "bg-white hover:bg-gray-100" : "bg-primary hover:bg-primary/90"
-                            }`}>
-                            {isCreateProfilePage ? "← Back to Home" : "Get Started"}
-                        </Button>
+                        isWaitlistMode ? (
+                            <JoinWaitlistDialog>
+                                <Button className="border-2 border-black bg-primary text-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg transition-all font-bold text-xs px-3 h-9">
+                                    Get Started
+                                </Button>
+                            </JoinWaitlistDialog>
+                        ) : (
+                            <Button
+                                onClick={() => window.location.href = '/create-profile'}
+                                className="border-2 border-black bg-primary text-black shadow-neo hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-neo-lg transition-all font-bold text-xs px-3 h-9">
+                                Get Started
+                            </Button>
+                        )
                     )}
                     <button
                         className="p-2 border-2 border-black shadow-neo active:translate-x-[2px] active:translate-y-[2px] active:shadow-none bg-white"
