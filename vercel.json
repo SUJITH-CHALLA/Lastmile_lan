@@ -1,5 +1,5 @@
 {
-    "buildCommand": "NEXT_TELEMETRY_DISABLED=1 TURBOPACK=0 next build",
+    "buildCommand": "NEXT_TELEMETRY_DISABLED=1 next build",
     "framework": "nextjs",
     "installCommand": "npm install --legacy-peer-deps"
 }
