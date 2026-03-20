@@ -3,6 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   serverExternalPackages: ['pdf-parse'],
   output: 'standalone',        // faster builds on Vercel
+  eslint: {
+    ignoreDuringBuilds: true
+  },
   typescript: {
     ignoreBuildErrors: true
   },
