@@ -3,7 +3,8 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
-import { Building, MapPin, Calendar, ExternalLink, Filter, Bell, Plus, MoreHorizontal, ChevronDown } from "lucide-react"
+import { Filter, Bell, Plus, MoreHorizontal, ChevronDown } from "lucide-react"
+import Image from "next/image"
 
 export default function ApplicationsPage() {
     // Kanban data structure
@@ -61,7 +62,7 @@ export default function ApplicationsPage() {
                                     <div className="flex justify-between items-start mb-3">
                                         <div className="flex items-center gap-2">
                                             <div className={`w-8 h-8 rounded border-2 border-black flex items-center justify-center overflow-hidden shrink-0 ${app.logoColor}`}>
-                                                <img src={`https://api.dicebear.com/7.x/initials/svg?seed=${app.company}&backgroundColor=transparent`} alt={app.company} className="w-full h-full mix-blend-screen opacity-90" />
+                                                <Image src={`https://api.dicebear.com/7.x/initials/svg?seed=${app.company}&backgroundColor=transparent`} alt={app.company} width={32} height={32} unoptimized className="w-full h-full mix-blend-screen opacity-90" />
                                             </div>
                                             <div>
                                                 <h3 className="font-black uppercase text-sm leading-tight">{app.company}</h3>
