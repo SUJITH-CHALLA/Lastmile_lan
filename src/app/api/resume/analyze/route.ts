@@ -24,7 +24,7 @@ export async function POST(req: Request) {
     // Detect file type by MIME or filename extension (FormData MIME can be empty)
     const isPdf = file.type === "application/pdf" || file.name?.toLowerCase().endsWith(".pdf")
     const isDocx = file.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                   || file.name?.toLowerCase().endsWith(".docx")
+      || file.name?.toLowerCase().endsWith(".docx")
 
     console.log("FILE NAME:", file.name)
     console.log("FILE TYPE:", file.type)
@@ -37,10 +37,10 @@ export async function POST(req: Request) {
         const { text } = await extractText(new Uint8Array(buffer))
         resumeText = Array.isArray(text) ? text.join('\n') : text
         console.log("unpdf SUCCESS, length:", resumeText.length)
-      } catch (err: any) {
-        console.error("unpdf FAILED:", err.message)
-        return NextResponse.json({ 
-          error: "PDF parsing failed. Please upload a .txt or .docx file instead." 
+      } catch (err: unknown) {
+        console.error("unpdf FAILED:", (err as Error).message)
+        return NextResponse.json({
+          error: "PDF parsing failed. Please upload a .txt or .docx file instead."
         }, { status: 400 })
       }
     } else if (isDocx) {
@@ -49,8 +49,8 @@ export async function POST(req: Request) {
         const { value } = await mammoth.extractRawText({ buffer })
         resumeText = value
         console.log("mammoth SUCCESS, text length:", resumeText.length)
-      } catch (docErr: any) {
-        console.error("mammoth FAILED:", docErr.message)
+      } catch (docErr: unknown) {
+        console.error("mammoth FAILED:", (docErr as Error).message)
         resumeText = buffer.toString("utf8")
       }
     } else {
@@ -170,10 +170,10 @@ Target Role: ${profileData.targetRole || profileData.jobTitle}`
       const errorMsg = aiData?.error?.message || `SambaNova API returned ${aiResponse.status}`
       console.log("SAMBANOVA 400 ERROR:", JSON.stringify(aiData))
       console.error("SambaNova API Error:", errorMsg)
-      return NextResponse.json({ 
-        error: errorMsg, 
-        status: aiResponse.status, 
-        model: "DeepSeek-R1-0528" 
+      return NextResponse.json({
+        error: errorMsg,
+        status: aiResponse.status,
+        model: "DeepSeek-R1-0528"
       }, { status: aiResponse.status })
     }
 
@@ -185,7 +185,7 @@ Target Role: ${profileData.targetRole || profileData.jobTitle}`
     // Clean potential markdown backticks
     const cleanContent = strippedText.replace(/```json/gi, "").replace(/```/g, "").trim()
 
-    let result: any
+    let result: Record<string, any>
     try {
       result = JSON.parse(cleanContent)
     } catch (parseErr) {
@@ -208,7 +208,15 @@ Target Role: ${profileData.targetRole || profileData.jobTitle}`
     result.originalSummary = resumeText.slice(0, 500)
     result.originalBullets = ["Analyzing original experience..."]
     result.optimizedSummary = result.professional_summary || ""
-    result.optimizedBullets = result.work_experience?.[0]?.bullets?.map((b: any) => typeof b === 'string' ? b : b.text) || []
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const workExp = result.work_experience as any[] | undefined
+    result.optimizedBullets = workExp?.[0]?.bullets?.map((b: unknown) => {
+      if (typeof b === 'string') return b
+      if (b && typeof b === 'object' && 'text' in b) return (b as { text: string }).text
+      return ""
+    }) || []
+
     result.skills = [
       ...(result.core_skills?.technical_skills || []),
       ...(result.core_skills?.tools || []),
@@ -234,10 +242,10 @@ Target Role: ${profileData.targetRole || profileData.jobTitle}`
 
     console.log("Analysis Complete for:", profileData.fullName)
     return NextResponse.json(result)
-  } catch (err: any) {
-    console.log('FULL ERROR:', err.message)
-    console.log('STACK:', err.stack)
-    return NextResponse.json({ error: err.message }, { status: 500 })
+  } catch (err: unknown) {
+    console.log('FULL ERROR:', (err as Error).message)
+    console.log('STACK:', (err as Error).stack)
+    return NextResponse.json({ error: (err as Error).message }, { status: 500 })
   }
 }
 
