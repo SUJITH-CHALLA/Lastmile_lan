@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Filter, ChevronDown, ListFilter, LayoutDashboard, Bookmark } from "lucide-react"
+import { ListFilter, LayoutDashboard, Bookmark } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
 import { Sidebar } from "@/components/dashboard/Sidebar"
@@ -14,7 +14,7 @@ import { FilterModal, FilterState } from "@/components/dashboard/FilterModal"
 import { ApplicationsTracker } from "@/components/dashboard/ApplicationsTracker"
 import { ResumeVault } from "@/components/dashboard/ResumeVault"
 import { PortfolioVault } from "@/components/dashboard/PortfolioVault"
-import { ProfileSection, loadProfile, ProfileData } from "@/components/dashboard/ProfileSection"
+import { ProfileSection } from "@/components/dashboard/ProfileSection"
 
 const initialJobs: Job[] = [
   {
@@ -218,12 +218,13 @@ export default function DashboardPage() {
 
   // Watch for filter changes and re-run filter with animation
   useEffect(() => {
-    setIsLoading(true)
+    const startTimer = setTimeout(() => setIsLoading(true), 0)
     const timer = setTimeout(() => {
       setJobs(filterJobs(initialJobs))
       setIsLoading(false)
     }, 600) // Shorter timeout for snappier filter application
-    return () => clearTimeout(timer)
+    return () => { clearTimeout(startTimer); clearTimeout(timer) }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeFilters, activeView, savedJobIds, hiddenJobIds])
 
   const handleRefresh = () => {
