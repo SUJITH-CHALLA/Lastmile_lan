@@ -1,93 +1,109 @@
 import { create } from 'zustand';
-import { ResumeData, ResumeScore, LogEntry, EditorMode } from '@/types/resume';
 
-interface ResumeStore {
-  // Data
-  resumeData: ResumeData | null;
-  originalText: string | null;
-
-  // Editor state
-  activeTemplate: string;
-  editorMode: EditorMode;
-  activeSectionId: string | null;
-  aiPanelOpen: boolean;
+// Use any for the large JSON schema shapes to avoid massive TS boilerplate for now
+export interface ResumeStore {
+  // Upload
+  uploadedFile: File | null;
+  parsedText: string;
 
   // Analysis
-  analysisComplete: boolean;
-  analysisLogs: LogEntry[];
-  score: ResumeScore | null;
+  isAnalyzing: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  analysisResult: Record<string, any> | null;
+  analysisError: string | null;
+
+  // Resume editing
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  currentResume: Record<string, any> | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  originalResume: Record<string, any> | null;
+  hasUnsavedChanges: boolean;
+
+  // Templates
+  selectedTemplate: number;
 
   // Actions
-  setResumeData: (data: ResumeData) => void;
-  updateSection: (sectionId: string, content: any) => void;
-  switchTemplate: (templateId: string) => void;
-  setEditorMode: (mode: EditorMode) => void;
-  openAIPanel: (sectionId: string) => void;
-  closeAIPanel: () => void;
-  acceptSuggestion: (sectionId: string, text: string) => void;
-  appendLog: (log: Omit<LogEntry, 'id'>) => void;
-  setAnalysisComplete: (complete: boolean) => void;
-  setOriginalText: (text: string) => void;
-  setScore: (score: ResumeScore) => void;
-  resetAnalysis: () => void;
+  setFile: (file: File | null) => void;
+  setParsedText: (text: string) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  setAnalysis: (result: Record<string, any> | null, error?: string | null) => void;
+  setIsAnalyzing: (analyzing: boolean) => void;
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  updateResumeSection: (sectionPath: string, content: any) => void;
+  resetToOriginal: () => void;
+
+  setTemplate: (id: number) => void;
+
+  acceptSuggestion: (sectionPath: string, newContent: string) => void;
+  rejectSuggestion: (sectionPath: string) => void;
+
+  // Additional actions
+  resetStore: () => void;
 }
 
 export const useResumeStore = create<ResumeStore>((set) => ({
-  // Data
-  resumeData: null,
-  originalText: null,
+  uploadedFile: null,
+  parsedText: "",
 
-  // Editor state
-  activeTemplate: 'standard',
-  editorMode: 'templates',
-  activeSectionId: null,
-  aiPanelOpen: false,
+  isAnalyzing: false,
+  analysisResult: null,
+  analysisError: null,
 
-  // Analysis
-  analysisComplete: false,
-  analysisLogs: [],
-  score: null,
+  currentResume: null,
+  originalResume: null,
+  hasUnsavedChanges: false,
 
-  // Actions
-  setResumeData: (data) => set({ resumeData: data }),
-  updateSection: (sectionId, content) => 
-    set((state) => {
-      if (!state.resumeData) return state;
-      // Depending on how sections are structured, this will need a more complex update logic.
-      // For now, simple spread assuming shallow update logic could be handled differently if it's an array element
-      return {
-        resumeData: {
-          ...state.resumeData,
-          [sectionId]: content,
-        }
-      };
-    }),
-  switchTemplate: (templateId) => set({ activeTemplate: templateId }),
-  setEditorMode: (mode) => set({ editorMode: mode }),
-  openAIPanel: (sectionId) => set({ aiPanelOpen: true, activeSectionId: sectionId }),
-  closeAIPanel: () => set({ aiPanelOpen: false, activeSectionId: null }),
-  acceptSuggestion: (sectionId, text) =>
-    set((state) => {
-      // Mock update to accept suggestion, logic here would replace the text in the active section
-      return state;
-    }),
-  appendLog: (log) =>
-    set((state) => ({
-      analysisLogs: [
-        ...state.analysisLogs, 
-        { ...log, id: Math.random().toString(36).substring(7) }
-      ]
-    })),
-  setAnalysisComplete: (complete) => set({ analysisComplete: complete }),
-  setOriginalText: (text) => set({ originalText: text }),
-  setScore: (score) => set({ score: score }),
-  resetAnalysis: () => set({
-    resumeData: null,
-    originalText: null,
-    analysisComplete: false,
-    analysisLogs: [],
-    score: null,
-    activeSectionId: null,
-    aiPanelOpen: false,
+  selectedTemplate: 3, // Neo-Brutalist default
+
+  setFile: (file) => set({ uploadedFile: file }),
+  setParsedText: (text) => set({ parsedText: text }),
+
+  setAnalysis: (result, error = null) => set((state) => ({
+    analysisResult: result,
+    analysisError: error,
+    currentResume: result?.improved_resume || state.currentResume,
+    originalResume: result?.improved_resume || state.originalResume,
+    isAnalyzing: false,
+    hasUnsavedChanges: false
+  })),
+
+  setIsAnalyzing: (analyzing) => set({ isAnalyzing: analyzing }),
+
+  updateResumeSection: (sectionPath, content) => set((state) => {
+    if (!state.currentResume) return state;
+    // Deep clone and update path logic would go here
+    // For now we'll do a simple top-level merge
+    const updated = { ...state.currentResume, [sectionPath]: content };
+    return {
+      currentResume: updated,
+      hasUnsavedChanges: true
+    };
+  }),
+
+  resetToOriginal: () => set((state) => ({
+    currentResume: state.originalResume ? JSON.parse(JSON.stringify(state.originalResume)) : null,
+    hasUnsavedChanges: false
+  })),
+
+  setTemplate: (id) => set({ selectedTemplate: id }),
+
+  acceptSuggestion: (sectionPath, newContent) => set((state) => {
+    if (!state.currentResume) return state;
+    const updated = { ...state.currentResume, [sectionPath]: newContent };
+    return { currentResume: updated, hasUnsavedChanges: true };
+  }),
+
+  rejectSuggestion: (_sectionPath) => set((state) => state), // no-op for now unless tracking rejected
+
+  resetStore: () => set({
+    uploadedFile: null,
+    parsedText: "",
+    isAnalyzing: false,
+    analysisResult: null,
+    analysisError: null,
+    currentResume: null,
+    originalResume: null,
+    hasUnsavedChanges: false
   })
 }));
