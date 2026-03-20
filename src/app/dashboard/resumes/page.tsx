@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { FileText, Plus, Download, UploadCloud, Trash2, Sparkles, FileClock, ChevronDown } from "lucide-react"
+import { FileText, Download, UploadCloud, Trash2, Sparkles, FileClock, ChevronDown } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 
 export default function ResumesPage() {

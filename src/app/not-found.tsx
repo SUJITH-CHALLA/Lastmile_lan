@@ -17,7 +17,7 @@ export default function NotFound() {
                 </h1>
 
                 <p className="text-gray-600 font-medium mb-8 text-base md:text-lg">
-                    This page got filtered by the ATS. Or it never existed. Let's get you back to landing interviews.
+                    This page got filtered by the ATS. Or it never existed. Let&apos;s get you back to landing interviews.
                 </p>
 
                 <div className="flex flex-col gap-4">
