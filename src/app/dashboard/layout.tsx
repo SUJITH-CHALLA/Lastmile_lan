@@ -4,7 +4,6 @@ export const metadata: Metadata = {
     title: "Feed — AI-E Console | LastMile",
     description: "Manage your AI-powered job applications.",
 }
-import { Sidebar } from "@/components/dashboard/Sidebar"
 import { AICopilot } from "@/components/dashboard/AICopilot"
 import { DemoBanner } from "@/components/dashboard/DemoBanner"
 
@@ -31,9 +30,6 @@ export default function DashboardLayout({
                 </Link>
                 <div className="font-black uppercase">AI-E Console</div>
             </div>
-
-            {/* Left Sidebar (Navigation) - Fixed width */}
-            <Sidebar />
 
             {/* Main Content Area - Scrollable */}
             <main className="flex-1 overflow-y-auto h-screen p-6 border-r-2 border-black">

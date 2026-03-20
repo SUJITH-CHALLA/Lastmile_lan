@@ -109,7 +109,22 @@ export function JobFeed() {
                     </div>
                 ) : (
                     dummyJobs.map((job, i) => (
-                        <JobCard key={i} {...job} />
+                        <JobCard
+                            key={i}
+                            job={{
+                                id: String(i),
+                                title: job.title,
+                                company: job.company,
+                                logo: "",
+                                logoBg: job.logoColor ?? "#ffffff",
+                                match: job.match,
+                                salary: job.salary,
+                                tags: job.tags,
+                                time: job.posted,
+                            }}
+                            onClick={() => { }}
+                        />
+
                     ))
                 )}
             </div>

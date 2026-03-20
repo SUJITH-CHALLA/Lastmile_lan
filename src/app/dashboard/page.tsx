@@ -5,9 +5,9 @@ import { Filter, ChevronDown, ListFilter, LayoutDashboard, Bookmark } from "luci
 import { motion, AnimatePresence } from "framer-motion"
 
 import { Sidebar } from "@/components/dashboard/Sidebar"
-import { TopNav } from "@/components/dashboard/TopNav"
+import TopNav from "@/components/dashboard/TopNav"
 import { JobCard, Job } from "@/components/dashboard/JobCard"
-import { JobDetailsPanel } from "@/components/dashboard/JobDetailsPanel"
+import JobDetailsPanel from "@/components/dashboard/JobDetailsPanel"
 import { SkeletonJobCard } from "@/components/dashboard/SkeletonLoader"
 import { DropdownFilter } from "@/components/dashboard/DropdownFilter"
 import { FilterModal, FilterState } from "@/components/dashboard/FilterModal"
