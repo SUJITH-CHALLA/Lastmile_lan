@@ -272,17 +272,6 @@ function AIPolishScreen({ data, onComplete }: { data: ProfileData, onComplete: (
     const [doneIds, setDoneIds] = useState<Set<string>>(new Set())
     const [autoRunIdx, setAutoRunIdx] = useState(0)
 
-    // Auto-run rephrase for all experiences sequentially
-    useEffect(() => {
-        const exps = profile.experience
-        if (autoRunIdx < exps.length) {
-            const exp = exps[autoRunIdx]
-            if (!doneIds.has(exp.id)) {
-                triggerRephrase(exp.id)
-            }
-        }
-    }, [autoRunIdx])
-
     const triggerRephrase = async (expId: string) => {
         const exp = profile.experience.find(e => e.id === expId)
         if (!exp || doneIds.has(expId)) return
@@ -298,6 +287,18 @@ function AIPolishScreen({ data, onComplete }: { data: ProfileData, onComplete: (
         setDoneIds(prev => new Set([...prev, expId]))
         setAutoRunIdx(i => i + 1)
     }
+
+    // Auto-run rephrase for all experiences sequentially
+    useEffect(() => {
+        const exps = profile.experience
+        if (autoRunIdx < exps.length) {
+            const exp = exps[autoRunIdx]
+            if (!doneIds.has(exp.id)) {
+                triggerRephrase(exp.id)
+            }
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [autoRunIdx])
 
     const toggleVersion = (expId: string, useRephrased: boolean) => {
         setProfile(prev => ({

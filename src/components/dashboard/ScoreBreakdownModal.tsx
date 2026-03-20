@@ -24,11 +24,11 @@ function generateBreakdown(job: Job): CriterionScore[] {
 
     // Deterministically calculate each score proportionally to its max weight.
     let s1 = Math.round((m / 100) * 25);
-    let s2 = Math.round((m / 100) * 20);
-    let s3 = Math.round((m / 100) * 20);
-    let s4 = Math.round((m / 100) * 15);
-    let s5 = Math.round((m / 100) * 10);
-    let s6 = Math.round((m / 100) * 10);
+    const s2 = Math.round((m / 100) * 20);
+    const s3 = Math.round((m / 100) * 20);
+    const s4 = Math.round((m / 100) * 15);
+    const s5 = Math.round((m / 100) * 10);
+    const s6 = Math.round((m / 100) * 10);
 
     // Correct any rounding difference so the sum stringently equals `m`
     const sum = s1 + s2 + s3 + s4 + s5 + s6;
