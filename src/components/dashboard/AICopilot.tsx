@@ -3,7 +3,8 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Send, Bot, Sparkles, User, Lightbulb } from "lucide-react"
+import { Send, Bot, Sparkles, Lightbulb } from "lucide-react"
+import Image from "next/image"
 
 export function AICopilot() {
     const [messages, setMessages] = useState([
@@ -48,7 +49,7 @@ export function AICopilot() {
                     <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Your personal job application assistant</p>
                 </div>
                 <div className="w-8 h-8 rounded-full border-2 border-black bg-white flex items-center justify-center overflow-hidden shrink-0">
-                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=AIE" alt="AI-E Avatar" className="w-full h-full object-cover bg-gray-100" />
+                    <Image src="https://api.dicebear.com/7.x/bottts/svg?seed=AIE" alt="AI-E Avatar" width={32} height={32} unoptimized className="w-full h-full object-cover bg-gray-100" />
                 </div>
             </div>
 
@@ -58,7 +59,7 @@ export function AICopilot() {
                     msg.role === "ai" ? (
                         <div key={i} className="flex gap-2 items-start">
                             <div className="w-8 h-8 rounded-full border-2 border-black shrink-0 overflow-hidden bg-white mt-1">
-                                <img src="https://api.dicebear.com/7.x/bottts/svg?seed=AIE" alt="AI" className="w-full h-full object-cover bg-gray-100" />
+                                <Image src="https://api.dicebear.com/7.x/bottts/svg?seed=AIE" alt="AI" width={32} height={32} unoptimized className="w-full h-full object-cover bg-gray-100" />
                             </div>
                             <div className="bg-gray-100 p-3 border-2 border-black font-medium text-sm rounded-br-none max-w-[85%]">
                                 {msg.text}
@@ -78,7 +79,7 @@ export function AICopilot() {
                 {isTyping && (
                     <div className="flex gap-2 items-start">
                         <div className="w-8 h-8 rounded-full border-2 border-black shrink-0 overflow-hidden bg-white mt-1">
-                            <img src="https://api.dicebear.com/7.x/bottts/svg?seed=AIE" alt="AI" className="w-full h-full object-cover bg-gray-100" />
+                            <Image src="https://api.dicebear.com/7.x/bottts/svg?seed=AIE" alt="AI" width={32} height={32} unoptimized className="w-full h-full object-cover bg-gray-100" />
                         </div>
                         <div className="bg-gray-100 p-3 border-2 border-black font-medium text-sm flex gap-1 items-center h-10 px-4">
                             <span className="w-1.5 h-1.5 bg-black rounded-full animate-bounce delay-75"></span>
@@ -101,7 +102,7 @@ export function AICopilot() {
                             onClick={() => { setInputValue(sug); handleSend(); }} // Actually auto-send or just populate. Lets populate for demo
                             className="text-left text-xs font-bold text-gray-700 bg-white border-2 border-black p-2 hover:bg-yellow-50 hover:shadow-neo transition-all rounded transition-all truncate"
                         >
-                            "{sug}"
+                            &quot;{sug}&quot;
                         </button>
                     ))}
                 </div>
