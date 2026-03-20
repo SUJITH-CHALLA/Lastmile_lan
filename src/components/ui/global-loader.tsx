@@ -21,9 +21,9 @@ export function GlobalLoader() {
     const [currentHash, setCurrentHash] = useState("")
 
     useEffect(() => {
-        // Set initial hash
+        // Set initial hash without triggering synchronous cascade
         let lastHash = window.location.hash
-        setCurrentHash(lastHash)
+        setTimeout(() => setCurrentHash(lastHash), 0)
 
         // Poll for hash changes to avoid Next.js router useInsertionEffect conflicts
         // when monkey-patching history.pushState.
